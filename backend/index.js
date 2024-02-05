@@ -1,6 +1,7 @@
 const express = require('express');
+const songRoutes = require('./routes/song.routes');
 const app = express();
-const port = process.env.PORT || 3001; // Use environment variable or default to 3001
+
 const cors = require('cors');
 
 require('dotenv').config();
@@ -33,6 +34,12 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+// Use the song routes
+app.use('/api/songs', songRoutes);
+
+// Other app.use() for different route prefixes
+
+const port = process.env.PORT || 3001; // Use environment variable or default to 3001
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
