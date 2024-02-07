@@ -1,12 +1,13 @@
 const express = require('express');
 const songRoutes = require('./routes/song.routes');
 const app = express();
-
 const cors = require('cors');
-
 require('dotenv').config();
 
+const geniusAccessToken = process.env.GENIUS_ACCESS_TOKEN;
+
 const mongoose = require('mongoose');
+
 const dbURI = process.env.DB_URI;
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
