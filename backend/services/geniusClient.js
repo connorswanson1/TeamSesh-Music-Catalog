@@ -8,6 +8,16 @@ const axiosInstance = axios.create({
     headers: { Authorization: `Bearer ${geniusApiKey}` },
 });
 
+async function get(path, params = {}) {
+    try {
+        const response = await axiosInstance.get(path, { params });
+        return response.data;
+    } catch (error) {
+        console.error("Error making request to Genius API: ", error);
+        throw error;
+    }
+}
+
 async function fetchSongById(songId) {
     try {
         const response = await axiosInstance.get(`/songs/${songId}`);
@@ -20,6 +30,6 @@ async function fetchSongById(songId) {
 // Add more functions for other types of requests like search, artist info, etc.
 
 module.exports = {
-    fetchSongById,
+    fetchSongById, get
     // export other functions
 };

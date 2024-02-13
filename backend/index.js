@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const songRoutes = require('./routes/song.routes');
+const artistRoutes = require('./routes/artist.routes');
 const app = express();
 const cors = require('cors');
 
@@ -28,6 +29,9 @@ app.get('/', (req, res) => {
 
 // Use the song routes
 app.use('/api/songs', songRoutes);
+
+// Use the artist routes - This is where you integrate the artist routes
+app.use('/api/artists', artistRoutes);
 
 // Other app.use() for different route prefixes
 
