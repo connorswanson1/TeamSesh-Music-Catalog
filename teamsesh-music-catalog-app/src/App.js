@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Music Catalog</h1>
+        <h1>TeamSESH Catalog</h1>
       </header>
       <main>
         <SongsList />

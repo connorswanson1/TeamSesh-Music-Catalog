@@ -1,5 +1,8 @@
+// components/SongsList.js
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './SongsList.css'; // Ensure your CSS file is updated for table styling
 
 const SongsList = () => {
     const [songs, setSongs] = useState([]);
@@ -9,7 +12,6 @@ const SongsList = () => {
     useEffect(() => {
         const fetchSongs = async () => {
             try {
-                // Update the URL to match your endpoint for fetching songs
                 const response = await axios.get('http://localhost:3001/api/artists/38842/songs');
                 setSongs(response.data);
                 setIsLoading(false);
@@ -20,20 +22,32 @@ const SongsList = () => {
         };
 
         fetchSongs();
-    }, []); // The empty array ensures this effect runs once on mount
+    }, []);
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div>
-            <h2>Songs by Bones</h2>
-            <ul>
+        <table className="songs-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Producer</th>
+                    <th>Release Date</th>
+                    {/* Add more headings as needed */}
+                </tr>
+            </thead>
+            <tbody>
                 {songs.map(song => (
-                    <li key={song.id}>{song.title}</li>
+                    <tr key={song.id}>
+                        <td>{song.title}</td>
+                        <td>{song.producer || 'N/A'}</td>
+                        <td>{song.releaseDate || 'Unknown'}</td>
+                        {/* Add more columns as needed */}
+                    </tr>
                 ))}
-            </ul>
-        </div>
+            </tbody>
+        </table>
     );
 };
 

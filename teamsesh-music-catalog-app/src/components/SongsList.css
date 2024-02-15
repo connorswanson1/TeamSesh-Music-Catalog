@@ -1,0 +1,33 @@
+/* components/SongsList.css */
+
+.songs-table {
+    width: 100%;
+    /* Use the full width */
+    border-collapse: collapse;
+    /* Remove space between borders */
+    margin-top: 20px;
+}
+
+.songs-table th,
+.songs-table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    /* Light border for each row */
+}
+
+.songs-table th {
+    background-color: #f2f2f2;
+    /* Light grey background for headers */
+    color: #333;
+}
+
+/* Zebra striping for rows */
+.songs-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect for rows */
+.songs-table tr:hover {
+    background-color: #e9e9e9;
+}
