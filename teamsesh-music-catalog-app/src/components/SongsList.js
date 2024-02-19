@@ -32,6 +32,7 @@ const SongsList = () => {
             <thead>
                 <tr>
                     <th>Title</th>
+                    <th>Album</th>
                     <th>Producer</th>
                     <th>Release Date</th>
                     {/* Add more headings as needed */}
@@ -41,6 +42,7 @@ const SongsList = () => {
                 {songs.map(song => (
                     <tr key={song.id}>
                         <td>{song.title}</td>
+                        <td>{song.album || 'Album'}</td>
                         <td>{song.producer || 'N/A'}</td>
                         <td>{song.releaseDate || 'Unknown'}</td>
                         {/* Add more columns as needed */}

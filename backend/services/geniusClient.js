@@ -18,18 +18,31 @@ async function get(path, params = {}) {
     }
 }
 
-async function fetchSongById(songId) {
+async function getSongDetails(songId) {
     try {
         const response = await axiosInstance.get(`/songs/${songId}`);
-        return response.data.response.song;
+        const songDetails = response.data.response.song;
+        // Extract and return only the needed details
+        return {
+            id: songDetails.id,
+            title: songDetails.title,
+            producers: songDetails.producer_artists.map(artist => artist.name).join(', '),
+            releaseDate: songDetails.release_date_for_display,
+            // Add more details as needed
+        };
     } catch (error) {
+        console.error("Error fetching song details:", error);
         throw error;
     }
 }
 
-// Add more functions for other types of requests like search, artist info, etc.
+async function getAllSongDetailsForArtist(artistId) {
+    const songIds = await getArtistSongs(artistId);
+    const songDetailsPromises = songIds.map(id => getSongDetails(id));
+    return Promise.all(songDetailsPromises); // Fetch all song details concurrently
+}
 
 module.exports = {
-    fetchSongById, get
+    getSongDetails, get, getAllSongDetailsForArtist
     // export other functions
 };

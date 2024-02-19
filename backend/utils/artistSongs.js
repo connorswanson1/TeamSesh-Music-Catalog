@@ -23,7 +23,6 @@ async function getArtistSongs(artistId) {
     return songs.map(song => ({
         id: song.id,
         title: song.title,
-        primary_artist_name: song.primary_artist.name,
     }));
 }
 
