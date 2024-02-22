@@ -9,7 +9,7 @@ const geniusAccessToken = process.env.GENIUS_ACCESS_TOKEN;
 
 const mongoose = require('mongoose');
 
-const dbURI = process.env.DB_URI;
+const dbURI = process.env.MONGO_URI;
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
