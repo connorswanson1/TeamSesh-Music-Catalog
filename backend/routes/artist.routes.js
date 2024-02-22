@@ -1,8 +1,8 @@
-// routes/artistRoutes.js
+// routes/artist.routes.js
 
 const express = require('express');
 const router = express.Router();
-const { getArtistSongs } = require('../utils/artistSongs');
+const { getArtistSongs } = require('../controllers/artist.controller');
 
 router.get('/:id/songs', async (req, res) => {
     try {
