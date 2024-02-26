@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-const Song = require('../models/song.model');
+const SongId = require('../models/songId.model');
 
-async function saveSongIds(songIds, artistId) {
+async function saveSongIds(songIds) {
     try {
         await mongoose.connect(process.env.MONGO_URI);
 
         const savePromises = songIds.map(songId => {
-            return Song.updateOne(
-                { songId: songId, artistId: artistId },
-                { $setOnInsert: { songId: songId.toString(), artistId: artistId } },
+            return SongId.updateOne(
+                { geniusSongId: songId },
+                { $setOnInsert: { songId: songId.toString() } },
                 { upsert: true }
             );
         });
