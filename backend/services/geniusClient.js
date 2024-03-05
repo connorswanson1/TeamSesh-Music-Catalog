@@ -19,35 +19,34 @@ async function get(path, params = {}) {
 }
 
 /* Get all songs by specified artist */
-async function getArtistSongs(artistId, maxSongs = null) {
+async function getArtistSongs(artistId) {
     let current_page = 1;
     let next_page = true;
     let songs = [];
 
-    while (next_page && (maxSongs == null || songs.length < maxSongs)) {
+    while (next_page) {
+        console.log(`Fetching page ${current_page} for artist ID ${artistId}`);
+
         const path = `artists/${artistId}/songs`;
         const params = { page: current_page };
         const data = await get(path, params);
 
         if (data && data.response && data.response.songs && data.response.songs.length > 0) {
-            // If maxSongs is specified, calculate remaining songs to fetch
-            const remainingSongs = maxSongs != null ? maxSongs - songs.length : data.response.songs.length;
-            songs = songs.concat(data.response.songs.slice(0, remainingSongs));
+            songs = songs.concat(data.response.songs);
+            console.log(`Fetched ${data.response.songs.length} songs, total collected: ${songs.length}`);
 
-            if (songs.length >= maxSongs) {
-                break; // Exit the loop if we've reached the maxSongs limit
-            }
-
+            // Assuming the API includes a field or indicator for more pages. Adjust as necessary.
+            next_page = !!data.response.next_page;
             current_page++;
         } else {
-            next_page = false;
+            next_page = false; // Stop if no songs found in the response
+            console.log('No songs found or end of data reached');
         }
     }
 
     return songs.map(song => ({
         id: song.id,
         title: song.title,
-        // Add other details you're interested in
     }));
 }
 

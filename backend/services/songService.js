@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const { mongoose } = require('../config/db'); // Import the shared mongoose instance
 const SongId = require('../models/songId.model');
 
 async function saveSongIds(songIds) {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
-
+        //await mongoose.connect(process.env.MONGO_URI);
+        // Connection not needed here, handled at start up
         const savePromises = songIds.map(songId => {
             return SongId.updateOne(
                 { geniusSongId: songId },
