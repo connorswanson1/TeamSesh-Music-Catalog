@@ -12,7 +12,7 @@ const SongsList = () => {
     useEffect(() => {
         const fetchSongs = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/artists/38842/songs');
+                const response = await axios.get('http://localhost:3001/api/songs/details');
                 setSongs(response.data);
                 setIsLoading(false);
             } catch (err) {
@@ -31,21 +31,28 @@ const SongsList = () => {
         <table className="songs-table">
             <thead>
                 <tr>
+                    <th>Artist</th>
                     <th>Title</th>
                     <th>Album</th>
                     <th>Producer</th>
                     <th>Release Date</th>
-                    {/* Add more headings as needed */}
+                    <th>Feature</th>
+                    {/* <th>Sample</th> */}
+                    <th>Art</th>
                 </tr>
             </thead>
             <tbody>
                 {songs.map(song => (
                     <tr key={song.id}>
+                        <td>{song.artist}</td>
                         <td>{song.title}</td>
-                        <td>{song.album || 'Album'}</td>
+                        <td>{song.album || 'N/A'}</td>
                         <td>{song.producer || 'N/A'}</td>
-                        <td>{song.releaseDate || 'Unknown'}</td>
-                        {/* Add more columns as needed */}
+                        <td>{song.release_date ? new Date(song.release_date).toLocaleDateString() : 'Unknown'}</td>                        <td>{song.feature || 'N/A'}</td>
+                        {/* <td>{song.sample || 'N/A'}</td> */}
+                        <td>
+                            {song.song_art_url ? <img src={song.song_art_url} alt="song art" style={{ width: '50px', height: '50px' }} /> : 'N/A'}
+                        </td>
                     </tr>
                 ))}
             </tbody>
