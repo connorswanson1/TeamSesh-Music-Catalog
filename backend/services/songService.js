@@ -1,5 +1,6 @@
 const { mongoose } = require('../config/db'); // Import the shared mongoose instance
 const SongId = require('../models/songId.model');
+const SongDetail = require('../models/songDetail.model');
 
 async function saveSongIds(songIds) {
     try {
@@ -21,4 +22,15 @@ async function saveSongIds(songIds) {
     }
 }
 
-module.exports = { saveSongIds };
+const saveSongDetail = async (songDetail) => {
+    try {
+        const detail = new SongDetail(songDetail);
+        await detail.save();
+        console.log(`Saved details for song ID: ${songDetail.geniusSongId}`);
+    } catch (error) {
+        console.error('Error saving song detail:', error);
+        throw error;
+    }
+};
+
+module.exports = { saveSongIds, saveSongDetail };

@@ -1,13 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const { getSong } = require('../controllers/song.controller');
+const { fetchAndSaveSongDetails } = require('../controllers/song.controller');
 
-router.get('/songs/:id/details', async (req, res) => {
+// Route to trigger fetching and saving song details
+router.get('/fetch-details', async (req, res) => {
     try {
-        const songDetails = await getSong(req.params.id);
-        res.json(songDetails);
+        // You can pass a query parameter to limit the number of songs processed for testing
+        const testLimit = req.query.limit ? parseInt(req.query.limit, 10) : null;
+
+        await fetchAndSaveSongDetails(testLimit);
+
+        res.status(200).send('Song details fetching and saving process initiated successfully.');
     } catch (error) {
-        res.status(500).json({ message: "Failed to fetch song details", error: error.toString() });
+        console.error('Error in route /fetch-details:', error);
+        res.status(500).send('Error initiating song details fetching and saving process.');
     }
 });
 

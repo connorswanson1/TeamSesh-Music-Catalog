@@ -51,23 +51,39 @@ async function getArtistSongs(artistId) {
 }
 
 /* Get detailed information using Song ID */
-async function getSongDetails(songId) {
+const fetchSongDetails = async (songId) => {
     try {
-        const response = await axiosInstance.get(`/songs/${songId}`);
-        const songDetails = response.data.response.song;
-        // Extract and return only the needed details
+        const response = await axios.get(`https://api.genius.com/songs/${songId}`, {
+            headers: { 'Authorization': `Bearer ${process.env.GENIUS_ACCESS_TOKEN}` }
+        });
+
+        const songData = response.data.response.song;
+
+        // Extract the producers' names
+        const producers = songData.producer_artists.map(producer => producer.name).join(', ');
+
+        // Extract samples used in the song
+        const samples = songData.song_relationships
+            .filter(relation => relation.type === "samples")
+            .flatMap(relation => relation.songs.map(song => song.title))
+            .join(', '); // Adjust based on your needs (e.g., storing as array vs. string)
+
         return {
-            id: songDetails.id,
-            title: songDetails.title,
-            producers: songDetails.producer_artists.map(artist => artist.name).join(', '),
-            releaseDate: songDetails.release_date_for_display,
-            // Add more details as needed
+            geniusSongId: songId.toString(),
+            title: songData.title,
+            artist: songData.primary_artist.name,
+            album: songData.album ? songData.album.name : null,
+            feature: songData.featured_artists.map(artist => artist.name).join(', '),
+            samples: samples, // Adjusted to fetch from the song_relationships structure
+            release_date: songData.release_date ? new Date(songData.release_date) : null,
+            song_art_url: songData.song_art_image_url,
+            producer: producers, // Added producer details
         };
     } catch (error) {
-        console.error("Error fetching song details:", error);
+        console.error(`Failed to fetch details for song ID ${songId}:`, error);
         throw error;
     }
-}
+};
 
 async function getAllSongDetailsForArtist(artistId) {
     const songIds = await getArtistSongs(artistId);
@@ -76,6 +92,6 @@ async function getAllSongDetailsForArtist(artistId) {
 }
 
 module.exports = {
-    getSongDetails, get, getAllSongDetailsForArtist, getArtistSongs
+    fetchSongDetails, get, getAllSongDetailsForArtist, getArtistSongs
     // export other functions
 };
