@@ -20,6 +20,13 @@
     background-color: #f2f2f2;
     /* Light grey background for headers */
     color: #333;
+    cursor: pointer;
+}
+
+/* Style for the currently active sorted column */
+.songs-table th.active-sort {
+    background-color: darkgrey;
+    /* Highlighted background */
 }
 
 /* Zebra striping for rows */
@@ -31,3 +38,32 @@
 .songs-table tr:hover {
     background-color: #e9e9e9;
 }
+
+.songs-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    /* Ensure the background is not transparent */
+    z-index: 1;
+    /* Make sure the header is above other content when scrolling */
+}
+
+/* Ensure the table has a defined context for the sticky positioning */
+.songs-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.songs-table th,
+.songs-table td {
+    text-align: left;
+    padding: 8px;
+}
+
+.songs-table th:hover {
+    background-color: #e0e0e0;
+    /* Light grey background on hover */
+}
+
+
+/* Add any additional styles for your table here */
