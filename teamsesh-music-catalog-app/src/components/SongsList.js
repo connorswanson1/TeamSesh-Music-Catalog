@@ -8,8 +8,16 @@ const SongsList = () => {
     const [songs, setSongs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [sortField, setSortField] = useState('release_date'); // Default sort field
+
+    const [sortField, setSortField] = useState('title'); // Default sort field
     const [sortOrder, setSortOrder] = useState('asc'); // Sort order: 'asc' or 'desc'
+
+    const [currentFilter, setCurrentFilter] = useState({ type: '', value: '' });
+    const uniqueArtists = useMemo(() => [...new Set(songs.map(song => song.artist))], [songs]);
+    const uniqueAlbums = useMemo(() => [...new Set(songs.map(song => song.album))], [songs]);
+    const uniqueProducers = useMemo(() => [...new Set(songs.map(song => song.producer))], [songs]);
+    const uniqueFeatures = useMemo(() => [...new Set(songs.map(song => song.feature))], [songs]);
+
 
     useEffect(() => {
         const fetchSongs = async () => {
@@ -25,21 +33,38 @@ const SongsList = () => {
 
         fetchSongs();
     }, []);
-
-    const sortedSongs = useMemo(() => {
-        const sortArray = songs.slice(); // Create a shallow copy of the songs array to sort
-        sortArray.sort((a, b) => {
-            if (a[sortField] < b[sortField]) {
-                return sortOrder === 'asc' ? -1 : 1;
+    /*
+        const sortedSongs = useMemo(() => {
+            const sortArray = songs.slice(); // Create a shallow copy of the songs array to sort
+            sortArray.sort((a, b) => {
+                if (a[sortField] < b[sortField]) {
+                    return sortOrder === 'asc' ? -1 : 1;
+                }
+                if (a[sortField] > b[sortField]) {
+                    return sortOrder === 'asc' ? 1 : -1;
+                }
+                return 0;
+            });
+            return sortArray;
+        }, [songs, sortField, sortOrder]); // Dependencies
+    
+        const handleSort = (field) => {
+            if (field === sortField) {
+                setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+            } else {
+                setSortField(field);
+                setSortOrder('asc'); // Default to ascending when changing sort fields
             }
-            if (a[sortField] > b[sortField]) {
-                return sortOrder === 'asc' ? 1 : -1;
-            }
-            return 0;
-        });
-        return sortArray;
-    }, [songs, sortField, sortOrder]); // Dependencies
-
+        };
+    
+        const filteredSongs = useMemo(() => {
+            if (!currentFilter.type) return songs; // No filter applied
+    
+            return songs.filter(song => {
+                return currentFilter.value === '' || song[currentFilter.type] === currentFilter.value;
+            });
+        }, [songs, currentFilter]);
+    */
     const handleSort = (field) => {
         if (field === sortField) {
             setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
@@ -48,6 +73,27 @@ const SongsList = () => {
             setSortOrder('asc'); // Default to ascending when changing sort fields
         }
     };
+    const sortedAndFilteredSongs = useMemo(() => {
+        let filtered = songs;
+
+        // Apply filter based on currentFilter state
+        if (currentFilter.type && currentFilter.value) {
+            filtered = filtered.filter(song => song[currentFilter.type] === currentFilter.value);
+        }
+
+        // Apply sorting based on sortField and sortOrder states
+        filtered.sort((a, b) => {
+            if (a[sortField] < b[sortField]) {
+                return sortOrder === 'asc' ? -1 : 1;
+            }
+            if (a[sortField] > b[sortField]) {
+                return sortOrder === 'asc' ? 1 : -1;
+            }
+            return 0;
+        });
+
+        return filtered;
+    }, [songs, currentFilter, sortField, sortOrder]); // Dependencies include all states affecting the output
 
 
     if (isLoading) return <div>Loading...</div>;
@@ -57,36 +103,48 @@ const SongsList = () => {
         <table className="songs-table">
             <thead>
                 <tr>
-                    <th onClick={() => handleSort('artist')}>
+                    <th>
                         Artist
-                        {sortField === 'artist' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
+                        <select onChange={e => setCurrentFilter({ type: 'artist', value: e.target.value })} value={currentFilter.type === 'artist' ? currentFilter.value : ''}>
+                            <option value="">All Artists</option>
+                            {uniqueArtists.map(artist => <option key={artist} value={artist}>{artist}</option>)}
+                        </select>
                     </th>
                     <th onClick={() => handleSort('title')}>
                         Title
                         {sortField === 'title' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
                     </th>
-                    <th onClick={() => handleSort('album')}>
+                    <th>
                         Album
-                        {sortField === 'album' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
+                        <select onChange={e => setCurrentFilter({ type: 'album', value: e.target.value })} value={currentFilter.type === 'album' ? currentFilter.value : ''}>
+                            <option value="">All Albums</option>
+                            {uniqueAlbums.map(album => <option key={album} value={album}>{album}</option>)}
+                        </select>
                     </th>
-                    <th onClick={() => handleSort('producer')}>
+                    <th>
                         Producer
-                        {sortField === 'producer' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
+                        <select onChange={e => setCurrentFilter({ type: 'producer', value: e.target.value })} value={currentFilter.type === 'producer' ? currentFilter.value : ''}>
+                            <option value="">All Producers</option>
+                            {uniqueProducers.map(producer => <option key={producer} value={producer}>{producer}</option>)}
+                        </select>
                     </th>
                     <th onClick={() => handleSort('release_date')}>
                         Release Date
                         {sortField === 'release_date' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
                     </th>
-                    <th onClick={() => handleSort('feature')}>
+                    <th>
                         Feature
-                        {sortField === 'feature' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
+                        <select onChange={e => setCurrentFilter({ type: 'feature', value: e.target.value })} value={currentFilter.type === 'feature' ? currentFilter.value : ''}>
+                            <option value="">All Features</option>
+                            {uniqueFeatures.map(feature => <option key={feature} value={feature}>{feature}</option>)}
+                        </select>
                     </th>
                     {/* <th>Sample</th> */}
                     <th>Art</th>
                 </tr>
             </thead>
             <tbody>
-                {sortedSongs.map(song => (
+                {sortedAndFilteredSongs.map(song => (
                     <tr key={song.id}>
                         <td>{song.artist}</td>
                         <td>{song.title}</td>

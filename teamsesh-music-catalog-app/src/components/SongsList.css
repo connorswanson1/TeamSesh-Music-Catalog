@@ -65,5 +65,19 @@
     /* Light grey background on hover */
 }
 
-
-/* Add any additional styles for your table here */
+.songs-table select {
+    width: 100%;
+    /* Make the select box as wide as the column */
+    padding: 4px;
+    /* Reduce padding to save space */
+    margin: 0;
+    /* Remove margin */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width */
+    background-color: #f9f9f9;
+    /* Optional: change background color */
+    border: 1px solid #ddd;
+    /* Optional: change border properties */
+    border-radius: 4px;
+    /* Optional: round corners */
+}
