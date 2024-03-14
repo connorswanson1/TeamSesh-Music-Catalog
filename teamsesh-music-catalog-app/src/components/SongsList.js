@@ -13,24 +13,17 @@ const SongsList = () => {
     const [sortOrder, setSortOrder] = useState('asc'); // Sort order: 'asc' or 'desc'
 
     const [currentFilter, setCurrentFilter] = useState({ type: '', value: '' });
-    const uniqueArtists = useMemo(() => {
-        const artists = [...new Set(songs.map(song => song.artist))];
-        return artists.sort();
-    }, [songs]);
 
-    const uniqueAlbums = useMemo(() => {
-        const albums = [...new Set(songs.map(song => song.album))];
-        return albums.sort();
-    }, [songs]);
+    const getUniqueSortedItems = (songs, property) => {
+        const items = [...new Set(songs.map(song => song[property] ? song[property] : ''))];
+        return items.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+    };
 
-    const uniqueProducers = useMemo(() => {
-        const producers = [...new Set(songs.map(song => song.producer))];
-        return producers.sort();
-    }, [songs]);
-    const uniqueFeatures = useMemo(() => {
-        const features = [...new Set(songs.map(song => song.feature))];
-        return features.sort();
-    }, [songs]);
+
+    const uniqueArtists = useMemo(() => getUniqueSortedItems(songs, 'artist'), [songs]);
+    const uniqueAlbums = useMemo(() => getUniqueSortedItems(songs, 'album'), [songs]);
+    const uniqueProducers = useMemo(() => getUniqueSortedItems(songs, 'producer'), [songs]);
+    const uniqueFeatures = useMemo(() => getUniqueSortedItems(songs, 'feature'), [songs]);
 
 
     useEffect(() => {
