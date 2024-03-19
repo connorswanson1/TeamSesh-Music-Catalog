@@ -8,10 +8,12 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>TeamSESH Catalog</h1>
+        <h1>TeamSESH Database</h1>
       </header>
       <main>
-        <SongsList />
+        <div className="database-container">
+          <SongsList />
+        </div>
       </main>
     </div>
   );
