@@ -1,0 +1,64 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    /* Adjust the background color as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: adds a subtle shadow for depth */
+    padding: 0 20px;
+    z-index: 1000;
+    /* Ensure navbar stays on top of other content */
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    /* Adjust the space between links */
+}
+
+.navbar-links button {
+    text-decoration: none;
+    color: #333;
+    /* Adjust link color as needed */
+    font-weight: bold;
+    transition: color 0.3s ease;
+    /* Smooth transition for the color change */
+}
+
+.navbar-links button:hover,
+.navbar-links button:focus {
+    /* Ensure accessibility for keyboard navigation */
+    color: #007bff;
+    /* Color changes on hover */
+}
+
+.navbar-contact button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    /* Adjust button background color as needed */
+    color: white;
+    border: none;
+    border-radius: 0px;
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color change */
+}
+
+.navbar-contact button:hover,
+.navbar-contact button:focus {
+    /* Ensure accessibility for keyboard navigation */
+    background-color: #0056b3;
+    /* Darker shade on hover/focus */
+}
+
+.navbar-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Add :hover effects for links and button as needed */

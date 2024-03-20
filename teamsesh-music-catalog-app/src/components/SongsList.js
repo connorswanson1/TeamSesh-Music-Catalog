@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import './SongsList.css';
+import '../styles/SongsList.css';
 
 const SongsList = () => {
     const [songs, setSongs] = useState([]);
