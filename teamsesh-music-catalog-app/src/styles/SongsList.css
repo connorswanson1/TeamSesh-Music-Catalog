@@ -1,34 +1,27 @@
+/* General container styles */
 .database-container {
-    max-height: 70vh;
-    /* Adjust based on your needs */
+    max-height: 85vh;
     overflow-y: auto;
-    /* Enables vertical scrolling */
     margin: 20px 30px;
-    /* Optional: Adds some space around the container */
 }
 
+/* Scrollbar styles */
 .database-container::-webkit-scrollbar {
     width: 16px;
-    /* Scrollbar width */
 }
 
 .database-container::-webkit-scrollbar-thumb {
-    background: #777777;
-    /* Scrollbar color */
+    background: #777;
 }
 
 .database-container::-webkit-scrollbar-thumb:hover {
     background: #555;
-    /* Scrollbar hover color */
 }
 
-
+/* Table styles */
 .songs-table {
     width: 100%;
-    /* Use the full width */
     border-collapse: collapse;
-    /* Remove space between borders */
-    /* margin-top: 20px; */
 }
 
 .songs-table th,
@@ -36,71 +29,43 @@
     text-align: left;
     padding: 8px;
     border-bottom: 1px solid #ddd;
-    /* Light border for each row */
 }
 
-.songs-table th {
+/* Sticky header styles */
+.songs-table thead th {
+    position: sticky;
+    top: 0;
     background-color: #f2f2f2;
-    /* Light grey background for headers */
-    color: #333;
-    cursor: pointer;
+    /* Solid background for sticky header */
+    z-index: 2;
 }
 
-/* Style for the currently active sorted column */
-.songs-table th.active-sort {
-    background-color: darkgrey;
-    /* Highlighted background */
-}
-
-/* Zebra striping for rows */
+/* Zebra striping with consideration for sticky header */
 .songs-table tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
 
-/* Hover effect for rows */
+.songs-table tr:nth-child(even) {
+    background-color: #efefef;
+    /* Ensure there's a distinction for even rows */
+}
+
 .songs-table tr:hover {
     background-color: #e9e9e9;
 }
 
-.songs-table thead th {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    /* Ensure the background is not transparent */
-    z-index: 1;
-    /* Make sure the header is above other content when scrolling */
+/* Active sort column highlighting */
+.songs-table th.active-sort {
+    background-color: darkgrey;
 }
 
-/* Ensure the table has a defined context for the sticky positioning */
-.songs-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.songs-table th,
-.songs-table td {
-    text-align: left;
-    padding: 8px;
-}
-
-.songs-table th:hover {
-    background-color: #e0e0e0;
-    /* Light grey background on hover */
-}
-
+/* Adjusted select box styles for filters */
 .songs-table select {
     width: 100%;
-    /* Make the select box as wide as the column */
     padding: 4px;
-    /* Reduce padding to save space */
     margin: 0;
-    /* Remove margin */
     box-sizing: border-box;
-    /* Include padding and border in the element's total width */
     background-color: #f9f9f9;
-    /* Optional: change background color */
     border: 1px solid #ddd;
-    /* Optional: change border properties */
     border-radius: 4px;
-    /* Optional: round corners */
 }

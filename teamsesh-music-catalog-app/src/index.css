@@ -5,6 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://www.gunskins.com/cdn/shop/articles/realtree-xtra-is-classic-camouflage-for-casual-and-practical-wear-423183.jpg?v=1678242048');
+  /* Path to your image */
+  background-size: cover;
+  /* Ensure the image covers the whole page */
+  background-position: center;
+  /* Center the background image */
+  background-attachment: fixed;
+  /* Keep the image fixed during scroll */
+  margin: 0;
+  /* Remove default margin */
+  padding: 0;
+  /* Remove default padding */
 }
 
 code {

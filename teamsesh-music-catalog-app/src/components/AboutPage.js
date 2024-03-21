@@ -1,9 +1,10 @@
 import React from 'react';
+import '../styles/About.css';
 
 function AboutPage() {
     return (
-        <div>
-            <h1>About</h1>
+        <div className="about-section">
+            <h2>About</h2>
             <p>This page was created by me, Connor Swanson. I am a software engineer, and my friends
                 and I consider ourselves to be pretty big TeamSESH fans. BONES has such a huge library of work, and I
                 felt that a true database was needed to log his work. I also wanted to make sure that the incredible
