@@ -1,26 +1,37 @@
-.home-section {
-    padding: 40px 20px;
-    /* Adjust padding as needed */
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Align items on both ends */
+    gap: 20px;
+    /* Adds space between the text content and logo */
+    min-height: 100vh;
     text-align: center;
     /* Center-align the text for a modern look */
     background-color: rgba(255, 255, 255, 0.9);
     /* White background with 90% opacity */
-    /* Light background color for the section */
 }
 
-.home-section h1 {
+.home-text {
+    width: 50%;
+    /* Adjust the width as needed */
+    padding: 20px;
+    /* Add some padding */
+}
+
+.home-text h1 {
     margin-bottom: 20px;
     /* Space below the header */
-    font-size: 2.5rem;
+    font-size: 3rem;
     /* Large, eye-catching font size */
-    color: #333;
+    color: #333333;
     /* Dark color for contrast */
 }
 
-.home-section p {
-    font-size: 1.2rem;
+.home-text p {
+    font-size: 2rem;
     /* Slightly larger font size for readability */
-    color: #666;
+    color: #000000;
     /* Medium-dark color for the text */
     max-width: 600px;
     /* Max width to control line length */
@@ -28,22 +39,36 @@
     /* Center the paragraph with auto left/right margins */
 }
 
-.home-section .cta-button {
-    padding: 10px 30px;
-    /* Padding for the button */
-    background-color: #007bff;
-    /* Button background color */
-    color: white;
-    /* Text color */
-    text-decoration: none;
-    /* Remove underline from link */
-    border-radius: 5px;
-    /* Rounded corners for the button */
-    transition: background-color 0.3s;
-    /* Smooth transition for hover effect */
+.home-image-container {
+    flex-grow: 1;
+    /* Take up half the space */
+    height: 100vh;
+    /* Full height of the viewport */
 }
 
-.home-section .cta-button:hover {
-    background-color: #0056b3;
-    /* Darker shade on hover */
+.home-photo {
+    width: 100%;
+    /* Take up all available width */
+    height: 100%;
+    /* Take up all available height */
+    object-fit: cover;
+    /* Cover the space without stretching */
+}
+
+
+.explore-btn {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Adjust as needed */
+    margin-top: 20px;
+}
+
+.explore-btn:hover {
+    background-color: #222222;
+    /* Slight hover effect */
 }

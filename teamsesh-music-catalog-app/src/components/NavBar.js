@@ -6,7 +6,7 @@ function scrollToComponent(componentId) {
     document.getElementById(componentId).scrollIntoView({ behavior: 'smooth' });
 }
 
-function scrollToSongsList() {
+export function scrollToSongsList() {
     const songsListElement = document.getElementById('songsList');
     if (songsListElement) {
         const headerOffset = 55; // Adjust this value based on the height of your fixed header/navbar

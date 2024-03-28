@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+.gothic-font {
+  font-family: 'UnifrakturCook', cursive;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('https://www.gunskins.com/cdn/shop/articles/realtree-xtra-is-classic-camouflage-for-casual-and-practical-wear-423183.jpg?v=1678242048');
+  background-image: url('/public/camo_bg.jpeg');
   /* Path to your image */
   background-size: cover;
   /* Ensure the image covers the whole page */

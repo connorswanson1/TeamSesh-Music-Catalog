@@ -33,14 +33,14 @@
 .navbar-links button:hover,
 .navbar-links button:focus {
     /* Ensure accessibility for keyboard navigation */
-    color: #ff6600;
+    color: #ff5e00;
     /* Color changes on hover */
 }
 
 .navbar-contact button {
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #ff6600;
+    background-color: #333;
     /* Adjust button background color as needed */
     color: white;
     border: none;
@@ -52,7 +52,7 @@
 .navbar-contact button:hover,
 .navbar-contact button:focus {
     /* Ensure accessibility for keyboard navigation */
-    background-color: #a74401;
+    background-color: #1d1d1d;
     /* Darker shade on hover/focus */
 }
 
