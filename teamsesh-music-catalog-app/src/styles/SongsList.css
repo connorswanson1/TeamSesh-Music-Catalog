@@ -2,7 +2,7 @@
 .database-container {
     max-height: 90vh;
     overflow-y: auto;
-    margin: 20px 30px;
+    margin: 60px 30px;
     border-radius: 10px;
 }
 
@@ -12,15 +12,15 @@
 }
 
 .database-container::-webkit-scrollbar-thumb {
-    background: #ff6600;
+    background: #666;
 }
 
 .database-container::-webkit-scrollbar-thumb:hover {
-    background: #a74401;
+    background: #333;
 }
 
 .database-container::-webkit-scrollbar-track {
-    background: #323232;
+    background: #000000;
     /* Dark grey background for the track */
 }
 
@@ -43,7 +43,7 @@
 
 /* Sticky header styles */
 .songs-table thead th {
-    background-color: #323232;
+    background-color: #000000;
     /* Dark background for contrast */
     color: #FFFFFF;
     /* White text for readability */
@@ -78,7 +78,7 @@
 }
 
 .songs-table th:hover {
-    background-color: #242424;
+    background-color: #202020;
     /* Slightly lighter shade on hover */
     cursor: pointer;
     /* Change cursor to indicate action */

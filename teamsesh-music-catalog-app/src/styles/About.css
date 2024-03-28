@@ -1,18 +1,44 @@
+.about-container {
+    height: 90vh;
+    /* Full height of the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Align items on both ends */
+    position: relative;
+    /* For positioning the pseudo-element */
+}
+
+/* Pseudo-element for the fade effect */
+.about-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    /* Adjust the height to control the fade effect */
+    background: linear-gradient(to bottom, transparent, #f3f3f3 50%);
+    /* This gradient fades from transparent to the color of the page background */
+    z-index: 2;
+    /* Above content but below any absolutely positioned elements */
+}
+
 .about-section {
-    padding: 40px 20px;
+    padding: 20px 20px 10px 100px;
+    width: 50%;
+    align-items: center;
     /* Consistent padding with the Home section */
-    background-color: rgba(255, 255, 255, 0.9);
-    /* White background with 90% opacity */
-    /* White background for a clean look */
 }
 
 .about-section h2 {
     font-size: 2rem;
     /* Slightly smaller than the Home section header */
-    color: #333;
+    color: #000000;
     /* Consistent text color for headers */
     margin-bottom: 20px;
     /* Space below the header */
+    text-align: left;
 }
 
 .about-section p {
@@ -26,16 +52,20 @@
     /* Max width to control line length */
     margin-bottom: 20px;
     /* Space between paragraphs */
+    text-align: left;
 }
 
-.about-section ul {
-    list-style-type: disc;
-    /* Bullet points for lists */
-    margin-left: 40px;
-    /* Indent list items */
+.about-image-container {
+    flex-grow: 1;
+    /* Take up half the space */
 }
 
-.about-section li {
-    margin-bottom: 10px;
-    /* Space between list items */
+.about-photo {
+    width: 60%;
+    /* Adjust size as needed */
+    max-width: 1000px;
+    /* Adjust max-width as needed */
+    height: auto;
+    border-radius: 10px;
+    /* Adjust for rounded corners */
 }
