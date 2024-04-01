@@ -42,7 +42,8 @@
     /* Large, eye-catching font size */
     color: #000000;
     /* Dark color for contrast */
-    text-align: left;
+    text-shadow: rgb(125, 125, 125) 1px 0 10px;
+    text-align: center;
 
 }
 

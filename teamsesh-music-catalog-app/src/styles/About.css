@@ -26,13 +26,13 @@
 
 .about-section {
     padding: 20px 20px 10px 100px;
-    width: 50%;
+    width: 100%;
     align-items: center;
     /* Consistent padding with the Home section */
 }
 
 .about-section h2 {
-    font-size: 2rem;
+    font-size: 3rem;
     /* Slightly smaller than the Home section header */
     color: #000000;
     /* Consistent text color for headers */
@@ -44,11 +44,11 @@
 .about-section p {
     color: #666;
     /* Consistent text color */
-    font-size: 1rem;
+    font-size: 1.5rem;
     /* Standard font size for body text */
     line-height: 1.6;
     /* Line height for improved readability */
-    max-width: 800px;
+    max-width: 75%;
     /* Max width to control line length */
     margin-bottom: 20px;
     /* Space between paragraphs */
@@ -81,7 +81,7 @@
     /* Span the full width */
     padding: 10px 0;
     /* A thin button */
-    background: rgba(110, 110, 110, 0.5);
+    background: rgba(110, 110, 110, 0.3);
     /* Semi-transparent black for visibility */
     color: white;
     /* Text color */
@@ -104,5 +104,5 @@
 }
 
 .back-to-songs:hover {
-    background: rgba(100, 100, 100, 0.6);
+    background: rgba(100, 100, 100, 0.4);
 }

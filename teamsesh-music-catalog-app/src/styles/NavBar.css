@@ -33,8 +33,9 @@
 .navbar-links button:hover,
 .navbar-links button:focus {
     /* Ensure accessibility for keyboard navigation */
-    color: #ff5e00;
+    color: #000000;
     /* Color changes on hover */
+    text-shadow: rgb(150, 150, 150) 1px 0 5px;
 }
 
 .navbar-contact button {

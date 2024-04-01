@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import '../styles/About.css';
-import Image from '../assets/bones_bottomtext.jpeg';
+// import Image from '../assets/bones_bottomtext.jpeg';
 import { scrollToSongsList } from './NavBar';
 
 function AboutPage() {
@@ -43,9 +43,9 @@ function AboutPage() {
                 </p>
                 <p>The database is sourced with the Genius API and the app itself is built with ReactJS and NodeJS.</p>
             </div>
-            <div className="about-image-container">
+            {/* <div className="about-image-container">
                 <img src={Image} alt="Bones" className="about-photo" />
-            </div>
+            </div> */}
         </div>
     );
 }

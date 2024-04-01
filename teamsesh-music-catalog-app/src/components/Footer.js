@@ -15,7 +15,7 @@ function Footer() {
                     </a>
                 </div>
                 <p>© 2024 Connor Swanson. All rights reserved.</p>
-                <p>Data provided by the <a href="https://genius.com/" target="_blank" rel="noopener noreferrer">Genius API</a>. Music and content is copyrighted by the respective artists and producers.</p>
+                <p>Data provided by the<a href="https://genius.com/" target="_blank" rel="noopener noreferrer">Genius API,</a>Music and content is copyrighted by the respective artists and producers.</p>
             </div>
         </footer>
     );
