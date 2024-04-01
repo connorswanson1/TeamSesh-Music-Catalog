@@ -61,11 +61,48 @@
 }
 
 .about-photo {
-    width: 60%;
+    width: 40%;
     /* Adjust size as needed */
     max-width: 1000px;
     /* Adjust max-width as needed */
     height: auto;
     border-radius: 10px;
     /* Adjust for rounded corners */
+}
+
+.back-to-songs {
+    display: block;
+    /* Show the button */
+    position: fixed;
+    top: 30px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* Span the full width */
+    padding: 10px 0;
+    /* A thin button */
+    background: rgba(110, 110, 110, 0.5);
+    /* Semi-transparent black for visibility */
+    color: white;
+    /* Text color */
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    /* Center the text */
+    z-index: 10;
+    /* Above other content */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    /* Start with button transparent */
+}
+
+/* Show the button with a smooth transition when it should appear */
+.back-to-songs.visible {
+    opacity: 1;
+    /* Full visibility */
+}
+
+.back-to-songs:hover {
+    background: rgba(100, 100, 100, 0.6);
 }
