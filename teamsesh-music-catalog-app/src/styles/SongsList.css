@@ -16,11 +16,11 @@
 }
 
 .database-container::-webkit-scrollbar-thumb:hover {
-    background: #333;
+    background: #5a5a5a;
 }
 
 .database-container::-webkit-scrollbar-track {
-    background: #000000;
+    background: #2f2f2f;
     /* Dark grey background for the track */
 }
 
@@ -38,12 +38,12 @@
     text-align: center;
     padding: 12px 15px;
     /* Increase padding for more space */
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #bababa;
 }
 
 /* Sticky header styles */
 .songs-table thead th {
-    background-color: #000000;
+    background-color: #2f2f2f;
     /* Dark background for contrast */
     color: #FFFFFF;
     /* White text for readability */
@@ -58,11 +58,11 @@
 
 /* Zebra striping with consideration for sticky header */
 .songs-table tr:nth-child(odd) {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 
 .songs-table tr:nth-child(even) {
-    background-color: #efefef;
+    background-color: #f6f6f6;
     /* Ensure there's a distinction for even rows */
 }
 

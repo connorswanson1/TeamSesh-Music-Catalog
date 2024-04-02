@@ -52,7 +52,7 @@
 }
 
 .footer-content a {
-  color: #007bff;
+  color: #000000;
   /* Link color */
   margin: 0 10px;
   /* Spacing between links */
@@ -84,6 +84,6 @@
 }
 
 .social-links a:hover {
-  color: #00a6ff;
+  color: #888888;
   /* Color for icon hover state */
 }
