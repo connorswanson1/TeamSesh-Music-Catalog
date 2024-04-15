@@ -30,7 +30,7 @@ function NavBar() {
                 <button onClick={() => scrollToComponent('aboutPage')}>About</button>
             </div>
             <div className="navbar-contact">
-                <button>Contact</button>
+                <button onClick={() => scrollToComponent('aboutPage')}>Contact</button>
             </div>
         </nav>
     );
