@@ -1,12 +1,14 @@
 .about-container {
+    display: flex;
     height: 90vh;
     /* Full height of the viewport */
-    display: flex;
     align-items: center;
+    /* Align children to the top */
     justify-content: space-between;
     /* Align items on both ends */
     position: relative;
     /* For positioning the pseudo-element */
+    margin-right: 100px;
 }
 
 /* Pseudo-element for the fade effect */
@@ -28,8 +30,10 @@
     padding: 20px 20px 10px 100px;
     width: 100%;
     align-items: center;
-    /* Consistent padding with the Home section */
+    flex-basis: 60%;
+    /* Adjust the width of both sections */
 }
+
 
 .about-section h2 {
     font-size: 3rem;
@@ -105,4 +109,71 @@
 
 .back-to-songs:hover {
     background: rgba(100, 100, 100, 0.4);
+}
+
+/* Contact Section */
+
+.contact-section {
+    padding: 20px 20px 10px 100px;
+    width: 100%;
+    align-items: center;
+    flex-basis: 40%;
+    /* Adjust the width of both sections */
+}
+
+.contact-section h2 {
+    font-size: 3rem;
+    /* Slightly smaller than the Home section header */
+    color: #000000;
+    /* Consistent text color for headers */
+    margin-bottom: 20px;
+    /* Space below the header */
+    text-align: right;
+}
+
+.contact-section p {
+    color: #666;
+    /* Consistent text color */
+    font-size: 1.5rem;
+    /* Standard font size for body text */
+    line-height: 1.6;
+    /* Line height for improved readability */
+    margin-bottom: 20px;
+    /* Space between paragraphs */
+    text-align: right;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #555;
 }

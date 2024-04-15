@@ -7,6 +7,7 @@ function AboutPage() {
     const aboutRef = useRef(null);
     const [showButton, setShowButton] = useState(false); // State to show or hide the button
 
+
     // Handle the scroll event
     useEffect(() => {
         const handleScroll = () => {
@@ -43,9 +44,22 @@ function AboutPage() {
                 </p>
                 <p>The database is sourced with the Genius API and the app itself is built with ReactJS and NodeJS.</p>
             </div>
-            {/* <div className="about-image-container">
-                <img src={Image} alt="Bones" className="about-photo" />
-            </div> */}
+            <div className="contact-section">
+                <h2>Contact</h2>
+                <p>Please feel free to reach out with questions, opportunities, or other inquiries.</p>
+                <div className="contact-form">
+                    <form action="https://api.web3forms.com/submit" method="POST" className="contact-form">
+                        <input type="hidden" name="apikey" value="your_api_key" />
+                        <div className="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required />
+                            <input type="email" name="email" placeholder="Your Email" required />
+                            <input type="text" name="subject" placeholder="Subject" required />
+                        </div>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" className="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 }
