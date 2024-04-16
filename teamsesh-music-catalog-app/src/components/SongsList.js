@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import '../styles/SongsList.css';
+import '../styles/LoadingIndicator.css';
 
 const SongsList = () => {
     const [songs, setSongs] = useState([]);
@@ -18,7 +19,6 @@ const SongsList = () => {
         const items = [...new Set(songs.map(song => song[property] ? song[property] : ''))];
         return items.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
     };
-
 
     const uniqueArtists = useMemo(() => getUniqueSortedItems(songs, 'artist'), [songs]);
     const uniqueAlbums = useMemo(() => getUniqueSortedItems(songs, 'album'), [songs]);
@@ -102,8 +102,15 @@ const SongsList = () => {
         return filtered;
     }, [songs, currentFilter, sortField, sortOrder]); // Dependencies include all states affecting the output
 
+    const LoadingIndicator = () => {
+        return (
+            <div className="loading-container">
+                <span className="loading-text"><span className="gothic-font">Loading...</span></span>
+            </div>
+        );
+    };
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <LoadingIndicator />;
     if (error) return <div>Error: {error}</div>;
 
     return (

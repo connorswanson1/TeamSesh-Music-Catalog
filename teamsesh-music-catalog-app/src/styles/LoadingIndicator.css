@@ -1,0 +1,11 @@
+/* LoadingIndicator.css */
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    /* Adjust the height as needed */
+    font-size: 4rem;
+    font-weight: bold;
+}
