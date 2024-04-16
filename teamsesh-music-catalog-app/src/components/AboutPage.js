@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import '../styles/About.css';
 // import Image from '../assets/bones_bottomtext.jpeg';
 import { scrollToSongsList } from './NavBar';
+const FormApiKey = process.env.REACT_APP_FORM_API_KEY;
 
 function AboutPage() {
     const aboutRef = useRef(null);
@@ -49,7 +50,8 @@ function AboutPage() {
                 <p>Please feel free to reach out with questions, opportunities, or other inquiries.</p>
                 <div className="contact-form">
                     <form action="https://api.web3forms.com/submit" method="POST" className="contact-form">
-                        <input type="hidden" name="apikey" value="your_api_key" />
+                        <input type="hidden" name="access_key" value={FormApiKey} />
+                        <input type="hidden" name="source" value="TeamSESH Database Website" />
                         <div className="form-group">
                             <input type="text" name="name" placeholder="Your Name" required />
                             <input type="email" name="email" placeholder="Your Email" required />
