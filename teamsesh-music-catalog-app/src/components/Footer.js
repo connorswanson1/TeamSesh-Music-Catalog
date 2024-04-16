@@ -13,6 +13,10 @@ function Footer() {
                     <a href="https://github.com/connorswanson1" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <i className="fab fa-github"></i>
                     </a>
+                    {/* Twitter Icon */}
+                    <a href="https://twitter.com/connorswanson_" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i className="fab fa-twitter"></i>
+                    </a>
                 </div>
                 <p>© 2024 Connor Swanson. All rights reserved.</p>
                 <p>Data provided by the<a href="https://genius.com/" target="_blank" rel="noopener noreferrer">Genius API,</a>Music and content is copyrighted by the respective artists and producers.</p>

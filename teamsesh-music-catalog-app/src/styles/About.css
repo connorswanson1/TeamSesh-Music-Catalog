@@ -6,24 +6,7 @@
     /* Align children to the top */
     justify-content: space-between;
     /* Align items on both ends */
-    position: relative;
-    /* For positioning the pseudo-element */
     margin-right: 100px;
-}
-
-/* Pseudo-element for the fade effect */
-.about-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    /* Adjust the height to control the fade effect */
-    background: linear-gradient(to bottom, transparent, #f3f3f3 50%);
-    /* This gradient fades from transparent to the color of the page background */
-    z-index: 2;
-    /* Above content but below any absolutely positioned elements */
 }
 
 .about-section {
@@ -57,21 +40,6 @@
     margin-bottom: 20px;
     /* Space between paragraphs */
     text-align: left;
-}
-
-.about-image-container {
-    flex-grow: 1;
-    /* Take up half the space */
-}
-
-.about-photo {
-    width: 40%;
-    /* Adjust size as needed */
-    max-width: 1000px;
-    /* Adjust max-width as needed */
-    height: auto;
-    border-radius: 10px;
-    /* Adjust for rounded corners */
 }
 
 .back-to-songs {
@@ -188,4 +156,77 @@
 
 .submit-button:hover {
     background-color: #555;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+
+    /* Adjusts for tablets and smaller devices */
+    .about-container {
+        flex-direction: column;
+        align-items: flex-start;
+        /* Align items to the top on mobile */
+        height: auto;
+        /* Allow the container to grow vertically */
+        margin-right: 20px;
+        /* Smaller margin on smaller screens */
+    }
+
+    .about-section,
+    .contact-section {
+        padding: 10px;
+        /* Smaller padding on mobile */
+        flex-basis: 100%;
+        /* Allow each section to take full width */
+        text-align: left;
+        /* Keep text left-aligned for readability */
+    }
+
+    .about-section h2,
+    .contact-section h2 {
+        font-size: 2rem;
+        /* Smaller font size for headers */
+        margin-bottom: 10px;
+        /* Smaller space below the header */
+    }
+
+    .about-section p,
+    .contact-section p {
+        font-size: 1rem;
+        /* Smaller font size for body text */
+        max-width: 100%;
+        /* Allow text to fill the container */
+        margin-bottom: 10px;
+        /* Smaller space between paragraphs */
+    }
+
+    .back-to-songs {
+        top: 10px;
+        /* Adjust position to not overlap with the navbar */
+        padding: 5px 0;
+        /* Thinner button on mobile */
+    }
+
+    .form-group {
+        grid-template-columns: 1fr;
+        /* Stack inputs on top of each other */
+        gap: 5px;
+        /* Smaller gap between inputs */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 1rem;
+        /* Smaller font size for inputs */
+    }
+
+    .contact-form textarea {
+        height: 120px;
+        /* Smaller textarea height */
+    }
+
+    .submit-button {
+        padding: 8px 16px;
+        /* Smaller padding for the button */
+    }
 }

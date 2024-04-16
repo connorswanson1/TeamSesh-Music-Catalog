@@ -20,7 +20,7 @@
 }
 
 .database-container::-webkit-scrollbar-track {
-    background: #2f2f2f;
+    background: #000000;
     /* Dark grey background for the track */
 }
 
@@ -43,7 +43,7 @@
 
 /* Sticky header styles */
 .songs-table thead th {
-    background-color: #2f2f2f;
+    background-color: #000000;
     /* Dark background for contrast */
     color: #FFFFFF;
     /* White text for readability */
@@ -78,7 +78,7 @@
 }
 
 .songs-table th:hover {
-    background-color: #202020;
+    background-color: #222222;
     /* Slightly lighter shade on hover */
     cursor: pointer;
     /* Change cursor to indicate action */
@@ -116,8 +116,6 @@
 }
 
 /* Might need an additional wrapper around the select for custom arrow styling in non-WebKit browsers */
-
-
 
 @media screen and (max-width: 768px) {
 

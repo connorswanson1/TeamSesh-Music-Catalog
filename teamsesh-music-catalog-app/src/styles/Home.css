@@ -94,3 +94,35 @@
     transition: background-color 0.5s;
     /* Smooth transition */
 }
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        /* Adjust alignment for mobile */
+    }
+
+    .home-text {
+        width: 100%;
+        /* Full width for mobile */
+        text-align: center;
+        /* Center text for better readability */
+    }
+
+    .home-text h1 {
+        font-size: 3rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .home-text p {
+        font-size: 1.5rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .home-image-container {
+        display: none;
+        /* Hide the image container on mobile */
+    }
+}

@@ -41,7 +41,7 @@
 .navbar-contact button {
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #333;
+    background-color: #000000;
     /* Adjust button background color as needed */
     color: white;
     border: none;
@@ -53,7 +53,7 @@
 .navbar-contact button:hover,
 .navbar-contact button:focus {
     /* Ensure accessibility for keyboard navigation */
-    background-color: #1d1d1d;
+    background-color: #333333;
     /* Darker shade on hover/focus */
 }
 
@@ -63,3 +63,40 @@
 }
 
 /* Add :hover effects for links and button as needed */
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .navbar-title {
+        display: none;
+        /* Hide the title on smaller screens */
+    }
+
+    .navbar-contact button {
+        font-size: 0;
+        /* Hide the text inside the button */
+        padding: 10px;
+        /* Adjust padding */
+        width: 40px;
+        /* Fixed width for the icon */
+        height: 40px;
+        /* Fixed height for the icon */
+    }
+
+    .navbar-contact button:before {
+        content: "\f007";
+        /* FontAwesome user icon */
+        font-family: "Font Awesome 5 Free";
+        /* Ensure this matches your FontAwesome version */
+        font-weight: 900;
+        /* FontAwesome solid style */
+        font-size: 16px;
+        /* Icon size */
+        color: white;
+        /* Icon color */
+    }
+
+    .navbar-links {
+        gap: 15px;
+        /* Smaller gap between links */
+    }
+}
