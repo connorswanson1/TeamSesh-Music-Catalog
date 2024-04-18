@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Home.css';
 import { scrollToSongsList } from './NavBar';
-import Image from '../assets/bones_smoke.jpeg';
+// import Image from '../assets/bones_smoke.jpeg';
 
 function HomePage() {
     return (
@@ -14,9 +14,9 @@ function HomePage() {
                 </p>
                 <button class="explore-btn" onClick={scrollToSongsList}>Explore Now ↓</button>
             </div>
-            <div className="home-image-container">
+            {/* <div className="home-image-container">
                 <img src={Image} alt="Bones" className="home-photo" />
-            </div>
+            </div> */}
         </div>
     );
 }

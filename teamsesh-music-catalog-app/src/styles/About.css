@@ -96,7 +96,7 @@
     /* Consistent text color for headers */
     margin-bottom: 20px;
     /* Space below the header */
-    text-align: right;
+    text-align: center;
 }
 
 .contact-section p {
@@ -108,7 +108,7 @@
     /* Line height for improved readability */
     margin-bottom: 20px;
     /* Space between paragraphs */
-    text-align: right;
+    text-align: center;
 }
 
 .form-group {
