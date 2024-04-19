@@ -11,7 +11,7 @@
 }
 
 .home-text {
-    width: 50%;
+    width: 75%;
     /* Adjust the width as needed */
     padding: 20px;
     /* Add some padding */
@@ -21,10 +21,10 @@
 .home-text h1 {
     margin-bottom: 20px;
     /* Space below the header */
-    font-size: 8.5rem;
+    font-size: 6.5rem;
     /* Large, eye-catching font size */
-    color: #000000;
-    /* Dark color for contrast */
+    color: var(--strong-text-color);
+    /* Strong color for contrast */
     /* text-shadow: rgb(125, 125, 125) 1px 0 10px; */
     text-align: center;
 
@@ -33,7 +33,7 @@
 .home-text p {
     font-size: 2rem;
     /* Slightly larger font size for readability */
-    color: #333;
+    color: var(--text-color);
     /* Medium-dark color for the text */
     max-width: 600px;
     /* Max width to control line length */

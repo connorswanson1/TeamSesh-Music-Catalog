@@ -39,20 +39,20 @@
 
 /* Footer */
 .site-footer {
-  background-color: #f8f9fa;
+  background-color: var(--strong-background-color);
   /* Light grey background */
-  color: #6c757d;
+  color: var(--text-color);
   /* Dark grey text */
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
   /* Adds some space above the footer */
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #dddddd;
   /* Light grey border at the top of the footer */
 }
 
 .footer-content a {
-  color: #000000;
+  color: var(--strong-text-color);
   /* Link color */
   margin: 0 10px;
   /* Spacing between links */
@@ -71,7 +71,7 @@
 }
 
 .social-links a {
-  color: #333;
+  color: var(--link-color);
   /* Match with your nav link color */
   margin: 0 10px;
   /* Adjust the space between icons */

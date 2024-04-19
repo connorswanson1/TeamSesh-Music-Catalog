@@ -21,7 +21,7 @@
 .about-section h2 {
     font-size: 3rem;
     /* Slightly smaller than the Home section header */
-    color: #000000;
+    color: var(--strong-text-color);
     /* Consistent text color for headers */
     margin-bottom: 20px;
     /* Space below the header */
@@ -29,7 +29,7 @@
 }
 
 .about-section p {
-    color: #666;
+    color: var(--text-color);
     /* Consistent text color */
     font-size: 1.5rem;
     /* Standard font size for body text */
@@ -92,7 +92,7 @@
 .contact-section h2 {
     font-size: 3rem;
     /* Slightly smaller than the Home section header */
-    color: #000000;
+    color: var(--strong-text-color);
     /* Consistent text color for headers */
     margin-bottom: 20px;
     /* Space below the header */
@@ -100,7 +100,7 @@
 }
 
 .contact-section p {
-    color: #666;
+    color: var(--text-color);
     /* Consistent text color */
     font-size: 1.5rem;
     /* Standard font size for body text */
@@ -123,7 +123,9 @@
     font-size: 1.5rem;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    color: var(--text-color);
+    background-color: var(--strong-background-color);
+    border: 1px solid var(--form-border-color);
     border-radius: 2px;
     width: 100%;
 }
@@ -137,7 +139,7 @@
 .contact-form input:focus,
 .contact-form textarea:hover,
 .contact-form textarea:focus {
-    border-color: #333;
+    border-color: var(--text-color);
     /* Darker border color on hover/focus */
     outline: none;
     /* Remove default focus outline */

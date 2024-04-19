@@ -1,6 +1,7 @@
 import React from 'react';
 //import { Link } from 'react-router-dom';
 import '../styles/NavBar.css';
+import DarkModeToggle from './DarkModeToggle';
 
 function scrollToComponent(componentId) {
     document.getElementById(componentId).scrollIntoView({ behavior: 'smooth' });
@@ -29,6 +30,7 @@ function NavBar() {
                 <button onClick={scrollToSongsList}>Songs</button>
                 <button onClick={() => scrollToComponent('aboutPage')}>About</button>
             </div>
+            <div><DarkModeToggle /></div>
             <div className="navbar-contact">
                 <button onClick={() => scrollToComponent('aboutPage')}>Contact</button>
             </div>

@@ -31,6 +31,7 @@
     border-collapse: collapse;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
+    color: var(--strong-text-color)
 }
 
 .songs-table th,
@@ -38,7 +39,7 @@
     text-align: center;
     padding: 12px 15px;
     /* Increase padding for more space */
-    border-bottom: 1px solid #bababa;
+    border-bottom: 1px solid var(--db-border-color);
 }
 
 /* Sticky header styles */
@@ -58,16 +59,16 @@
 
 /* Zebra striping with consideration for sticky header */
 .songs-table tr:nth-child(odd) {
-    background-color: #ffffff;
+    background-color: var(--light-db-color);
 }
 
 .songs-table tr:nth-child(even) {
-    background-color: #f6f6f6;
+    background-color: var(--strong-db-color);
     /* Ensure there's a distinction for even rows */
 }
 
 .songs-table tr:hover {
-    background-color: #dfdede;
+    background-color: var(--db-hover-color);
     transition: background-color 0.5s;
     /* Smooth transition */
 }

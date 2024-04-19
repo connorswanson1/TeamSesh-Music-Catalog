@@ -9,3 +9,7 @@
     font-size: 4rem;
     font-weight: bold;
 }
+
+.loading-text {
+    color: var(--strong-text-color)
+}

@@ -2,6 +2,37 @@
 
 .gothic-font {
   font-family: 'UnifrakturCook', cursive;
+  text-shadow: rgb(125, 125, 125) 1px 0 10px;
+}
+
+/* Default light mode */
+:root {
+  --background-color: #f5f5f5;
+  --strong-background-color: #fff;
+  --text-color: #333;
+  --strong-text-color: #000;
+  --link-color: #333333;
+  --shadow-color: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --light-db-color: #dcdcdc;
+  --strong-db-color: #d4d4d4;
+  --db-border-color: #ccc;
+  --db-hover-color: #c6c6c6;
+  --form-border-color: #ccc;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --background-color: #1c1c1c;
+  --strong-background-color: #000;
+  --text-color: #dddddd;
+  --strong-text-color: #ffffff;
+  --link-color: #cccccc;
+  --shadow-color: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --light-db-color: #4e4e4e;
+  --strong-db-color: #555555;
+  --db-border-color: #333;
+  --db-hover-color: #454545;
+  --form-border-color: #ffffff;
 }
 
 body {
@@ -13,25 +44,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: url('/public/camo_bg.jpeg'); */
-  background-color: rgb(235, 235, 235);
+  background-color: var(--background-color);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  position: relative;
-  /* Set position relative to contain the pseudo-element */
-}
-
-body::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.3);
-  /* White background with 50% opacity */
-  z-index: -1;
-  /* Position it behind the content */
 }
 
 code {
