@@ -1,4 +1,6 @@
 /* General container styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 .database-container {
     max-height: 90vh;
     overflow-y: auto;
@@ -29,7 +31,9 @@
 .songs-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
     font-size: 1rem;
     color: var(--strong-text-color)
 }
