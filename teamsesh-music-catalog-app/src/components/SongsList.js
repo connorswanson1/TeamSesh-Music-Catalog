@@ -10,8 +10,8 @@ const SongsList = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const [sortField, setSortField] = useState('title'); // Default sort field
-    const [sortOrder, setSortOrder] = useState('asc'); // Sort order: 'asc' or 'desc'
+    const [sortField, setSortField] = useState('release_date'); // Default sort field
+    const [sortOrder, setSortOrder] = useState('desc'); // Sort order: 'asc' or 'desc'
 
     const [currentFilter, setCurrentFilter] = useState({ type: '', value: '' });
 
@@ -90,10 +90,15 @@ const SongsList = () => {
 
         // Apply sorting based on sortField and sortOrder states
         filtered.sort((a, b) => {
-            if (a[sortField] < b[sortField]) {
+            // Handling "unknown" dates, assuming 'Unknown' is used for unknown dates
+            const dateA = a[sortField] === 'Unknown' ? new Date('9999-12-31') : new Date(a[sortField]);
+            const dateB = b[sortField] === 'Unknown' ? new Date('9999-12-31') : new Date(b[sortField]);
+
+            // Sorting based on date values
+            if (dateA < dateB) {
                 return sortOrder === 'asc' ? -1 : 1;
             }
-            if (a[sortField] > b[sortField]) {
+            if (dateA > dateB) {
                 return sortOrder === 'asc' ? 1 : -1;
             }
             return 0;
@@ -101,6 +106,7 @@ const SongsList = () => {
 
         return filtered;
     }, [songs, currentFilter, sortField, sortOrder]); // Dependencies include all states affecting the output
+
 
     const LoadingIndicator = () => {
         return (
