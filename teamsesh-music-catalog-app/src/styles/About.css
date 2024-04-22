@@ -172,6 +172,7 @@
         /* Allow the container to grow vertically */
         margin-right: 20px;
         /* Smaller margin on smaller screens */
+        width: 90%;
     }
 
     .about-section,

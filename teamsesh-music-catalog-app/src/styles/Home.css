@@ -85,17 +85,18 @@
         align-items: center;
         justify-content: flex-start;
         /* Adjust alignment for mobile */
+        width: 90%;
     }
 
     .home-text {
-        width: 100%;
+        width: 75%;
         /* Full width for mobile */
         text-align: center;
         /* Center text for better readability */
     }
 
     .home-text h1 {
-        font-size: 3rem;
+        font-size: 4rem;
         /* Adjust font size for smaller screens */
     }
 
