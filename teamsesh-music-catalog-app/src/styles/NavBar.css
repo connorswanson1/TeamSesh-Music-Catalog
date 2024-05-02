@@ -22,20 +22,21 @@
 }
 
 .navbar-links button {
+    background: none;
+    border: none;
     text-decoration: none;
-    background-color: #dddddd;
-    color: #222;
+    color: var(--text-color);
     /* Adjust link color as needed */
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    transition: color 0.3s;
     /* Smooth transition for the color change */
 }
 
 .navbar-links button:hover,
 .navbar-links button:focus {
-    /* Ensure accessibility for keyboard navigation */
-    background-color: #bbbbbb;
-    /* Color changes on hover */
+    color: var(--strong-text-color);
+    text-decoration: underline;
 }
 
 .navbar-contact button {

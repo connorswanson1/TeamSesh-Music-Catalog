@@ -41,7 +41,7 @@
 .songs-table th,
 .songs-table td {
     text-align: center;
-    padding: 12px 15px;
+    padding: 12px 12px;
     /* Increase padding for more space */
     border-bottom: 1px solid var(--db-border-color);
 }
