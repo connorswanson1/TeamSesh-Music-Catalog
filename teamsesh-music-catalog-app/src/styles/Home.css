@@ -7,11 +7,10 @@
     gap: 20px;
     /* Adds space between the text content and logo */
     min-height: 100vh;
-    /* White background with 90% opacity */
 }
 
 .home-text {
-    width: 75%;
+    width: 60%;
     /* Adjust the width as needed */
     padding: 20px;
     /* Add some padding */
@@ -21,7 +20,7 @@
 .home-text h1 {
     margin-bottom: 20px;
     /* Space below the header */
-    font-size: 6.5rem;
+    font-size: 5.5rem;
     /* Large, eye-catching font size */
     color: var(--strong-text-color);
     /* Strong color for contrast */
@@ -31,7 +30,7 @@
 }
 
 .home-text p {
-    font-size: 2rem;
+    font-size: 1.75rem;
     /* Slightly larger font size for readability */
     color: var(--text-color);
     /* Medium-dark color for the text */
@@ -42,11 +41,14 @@
     text-align: center;
 }
 
-.home-image-container {
-    flex-grow: 1;
-    /* Take up half the space */
-    height: 100vh;
+.home-search-container {
     /* Full height of the viewport */
+    align-items: center;
+    /* justify-content: space-between; */
+    justify-content: center;
+    /* Align items on both ends */
+    padding: 40px;
+    /* Add some padding */
 }
 
 .home-photo {
@@ -62,20 +64,19 @@
 .explore-btn {
     background-color: #000000;
     color: #ffffff;
-    padding: 10px 20px;
-    border: none;
+    padding: 15px 20px;
+    border: 2px solid transparent;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.5rem;
     /* Adjust as needed */
     margin-top: 20px;
 }
 
 .explore-btn:hover {
-    background-color: #333333;
+    background-color: #333;
     /* Slight hover effect */
-    transition: background-color 0.5s;
-    /* Smooth transition */
+    border-color: var(--strong-text-color);
 }
 
 /* Responsive adjustments for mobile */

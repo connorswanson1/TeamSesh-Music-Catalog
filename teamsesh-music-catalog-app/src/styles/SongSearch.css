@@ -1,0 +1,92 @@
+.search-container {
+    background-color: #000;
+    /* Light background for the search area */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    width: 400px;
+    /* Adjust width as needed */
+    margin: 20px auto;
+    /* Centering the search container */
+}
+
+.search-input {
+    width: 100%;
+    /* Full width of its container */
+    padding: 8px 10px;
+    font-size: 16px;
+    /* Comfortable reading size */
+    border: 2px solid var(--db-border-color);
+    /* Subtle border */
+    border-radius: 4px;
+    /* Rounded corners for the input field */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+    background-color: var(--light-db-color);
+    color: var(--text-color);
+}
+
+.search-results {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    max-height: 0;
+    /* Start with max-height at 0 */
+    overflow-y: auto;
+    border-radius: 4px;
+    background: var(--light-db-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.5s ease-out;
+    /* Smooth transition for max-height */
+}
+
+/* Add a CSS class to expand the results */
+.search-results.expanded {
+    max-height: 250px;
+    /* Set to maximum height you expect the content might need */
+}
+
+
+.search-results li {
+    padding: 10px;
+    border-bottom: 1px solid var(--db-border-color);
+    /* Light line between items */
+    cursor: pointer;
+    /* Indicate items are clickable */
+}
+
+.search-results li:hover {
+    background-color: var(--db-hover-color);
+    /* Hover effect */
+}
+
+.song-details {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--light-db-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.song-details h3 {
+    color: var(--strong-text-color);
+    /* Dark text for better visibility */
+    margin-bottom: 10px;
+}
+
+.song-details p {
+    color: var(--text-color);
+    /* Slightly lighter text for less emphasis */
+    margin-bottom: 5px;
+}
+
+.song-details img {
+    width: 100px;
+    /* Larger image for better visibility */
+    height: auto;
+    border-radius: 4px;
+    /* Rounded corners for the image */
+    margin-top: 10px;
+}
