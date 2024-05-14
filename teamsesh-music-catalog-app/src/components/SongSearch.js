@@ -15,7 +15,8 @@ const SongSearch = () => {
     useEffect(() => {
         const fetchSongs = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/songs/details');
+                const baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3001'; // Fallback to localhost for development
+                const response = await axios.get(`${baseURL}/api/songs/details`);
                 setSongs(response.data);
                 if (response.data.length > 0) {
                     // Select a random song
