@@ -4,8 +4,9 @@
   "description": "A full-stack music catalog app for TeamSESH BONES",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "heroku-postbuild": "cd teamsesh-music-catalog-app && npm install && npm run build",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm start",
+    "heroku-postbuild": "npm install --prefix backend && npm install --prefix teamsesh-music-catalog-app && npm install && npm run build --prefix teamsesh-music-catalog-app",
     "dev": "concurrently \"cd backend && nodemon server.js\" \"cd teamsesh-music-catalog-app && npm start\""
   },
   "engines": {
