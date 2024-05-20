@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const axios = require('axios'); // Ensure axios is required
 const connectDB = require('./config/db'); // Import the connectDB function
 require('dotenv').config(); // To use environment variables from .env file
 
