@@ -7,16 +7,12 @@ const proxy = url.parse(process.env.QUOTAGUARDSTATIC_URL);
 const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    auth: {
-        user: process.env.MONGO_USER,
-        password: process.env.MONGO_PASSWORD,
-    },
     proxy: {
-        protocol: proxy.protocol,
-        hostname: proxy.hostname,
-        port: proxy.port,
-        auth: proxy.auth,
-    },
+        proxyUsername: new URL(proxyUrl).username,
+        proxyPassword: new URL(proxyUrl).password,
+        proxyHostname: new URL(proxyUrl).hostname,
+        proxyPort: new URL(proxyUrl).port
+    }
 };
 
 const connectDB = async () => {
