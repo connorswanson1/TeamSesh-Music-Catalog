@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
+
+console.log('MONGO_URI:', process.env.MONGO_URI);
 
 const dbURI = process.env.MONGO_URI; // Make sure this is defined in your .env file
 
