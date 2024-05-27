@@ -110,4 +110,15 @@
         display: none;
         /* Hide the image container on mobile */
     }
+
+    .home-search-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 75%;
+        padding: 20px;
+        margin: 10px;
+        /* Add padding for better spacing */
+    }
 }

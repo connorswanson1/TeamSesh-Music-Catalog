@@ -10,7 +10,7 @@ function HomePage() {
             <div className="home-text">
                 <h1> <span className="gothic-font">TeamSesh Database</span></h1>
                 <p>This page is a collection of every song <span className="gothic-font">BONES</span> has made, produced, or been featured on. </p>
-                <p>To the right is a function for searching for a specific song, and below is the full database.</p>
+                <p>You can search for a specific song, or access the full database below.</p>
                 <p> Songs can be fitered by the artist, the producer, album, or feature.
                     Songs can also be sorted by release date or alphabetically by title. Thank you for visiting, enjoy. <span className="gothic-font">sesh</span>.
                 </p>
