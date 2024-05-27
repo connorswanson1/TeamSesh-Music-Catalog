@@ -90,3 +90,11 @@
     /* Rounded corners for the image */
     margin-top: 10px;
 }
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .search-container {
+        max-width: 80%;
+        min-width: 40%;
+    }
+}
