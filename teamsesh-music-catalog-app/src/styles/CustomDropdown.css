@@ -1,0 +1,29 @@
+/* styles/CustomDropdown.css */
+.custom-dropdown {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.custom-dropdown label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.custom-dropdown select {
+    color: #fff;
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background-color: #424242;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .custom-dropdown select {
+        width: 75%;
+        /* max-width: 90%; */
+    }
+}

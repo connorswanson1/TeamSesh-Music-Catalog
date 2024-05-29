@@ -35,7 +35,7 @@
     font-weight: 500;
     font-style: normal;
     font-size: 1rem;
-    color: var(--strong-text-color)
+    color: var(--strong-text-color);
 }
 
 .songs-table th,
@@ -124,8 +124,25 @@
 
 @media screen and (max-width: 768px) {
 
-    .songs-table th:nth-child(n+6),
-    .songs-table td:nth-child(n+6) {
-        display: none;
+    .songs-table {
+        width: 100%;
+        font-weight: 250;
+        font-size: .7rem;
     }
+
+    .database-container {
+        max-height: 75vh;
+        overflow-x: auto;
+        margin: 0px 15px;
+    }
+
+    .songs-table th,
+    .songs-table td {
+        padding: 10px 2px;
+    }
+
+    /* .songs-table th:nth-child(n+2),
+    .songs-table td:nth-child(n+2) {
+        max-width: 250px;
+    } */
 }
