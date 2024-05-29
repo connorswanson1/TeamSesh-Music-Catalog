@@ -1,10 +1,10 @@
+// components/NavBar.js
 import React from 'react';
-//import { Link } from 'react-router-dom';
 import '../styles/NavBar.css';
 import DarkModeToggle from './DarkModeToggle';
 
-function scrollToComponent(componentId) {
-    document.getElementById(componentId).scrollIntoView({ behavior: 'smooth' });
+function scrollToComponent(ref) {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
 }
 
 export function scrollToSongsList() {
@@ -21,18 +21,18 @@ export function scrollToSongsList() {
     }
 }
 
-function NavBar() {
+function NavBar({ aboutRef, contactRef }) {
     return (
         <nav className="navbar">
             <div className="navbar-title">TeamSESH Database</div>
             <div className="navbar-links">
-                <button onClick={() => scrollToComponent('homePage')}>Home</button>
+                <button onClick={() => scrollToComponent({ current: document.getElementById('homePage') })}>Home</button>
                 <button onClick={scrollToSongsList}>Songs</button>
-                <button onClick={() => scrollToComponent('aboutPage')}>About</button>
+                <button onClick={() => scrollToComponent(aboutRef)}>About</button>
             </div>
             <div><DarkModeToggle /></div>
             <div className="navbar-contact">
-                <button onClick={() => scrollToComponent('aboutPage')}>Contact</button>
+                <button onClick={() => scrollToComponent(contactRef)}>Contact</button>
             </div>
         </nav>
     );

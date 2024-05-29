@@ -1,235 +1,41 @@
-.about-container {
-    display: flex;
-    height: 90vh;
-    /* Full height of the viewport */
-    align-items: center;
-    /* Align children to the top */
-    justify-content: space-between;
-    /* Align items on both ends */
-    margin-right: 100px;
-}
-
+/* styles/About.css */
 .about-section {
-    padding: 20px 20px 10px 100px;
+    padding: 20px 100px 10px 100px;
     width: 100%;
-    align-items: center;
-    flex-basis: 60%;
-    /* Adjust the width of both sections */
+    box-sizing: border-box;
 }
-
 
 .about-section h2 {
     font-size: 3rem;
-    /* Slightly smaller than the Home section header */
     color: var(--strong-text-color);
-    /* Consistent text color for headers */
     margin-bottom: 20px;
-    /* Space below the header */
     text-align: left;
 }
 
 .about-section p {
     color: var(--text-color);
-    /* Consistent text color */
     font-size: 1.25rem;
-    /* Standard font size for body text */
     line-height: 1.6;
-    /* Line height for improved readability */
-    max-width: 75%;
-    /* Max width to control line length */
+    max-width: 100%;
     margin-bottom: 20px;
-    /* Space between paragraphs */
     text-align: left;
-}
-
-.back-to-songs {
-    display: block;
-    /* Show the button */
-    position: fixed;
-    top: 30px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    /* Span the full width */
-    padding: 10px 0;
-    /* A thin button */
-    background: rgba(110, 110, 110, 0.3);
-    /* Semi-transparent black for visibility */
-    color: white;
-    /* Text color */
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    text-align: center;
-    /* Center the text */
-    z-index: 10;
-    /* Above other content */
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-    /* Start with button transparent */
-}
-
-/* Show the button with a smooth transition when it should appear */
-.back-to-songs.visible {
-    opacity: 1;
-    /* Full visibility */
-}
-
-.back-to-songs:hover {
-    background: rgba(100, 100, 100, 0.4);
-}
-
-/* Contact Section */
-
-.contact-section {
-    padding: 20px 20px 10px 100px;
-    width: 100%;
-    align-items: center;
-    flex-basis: 40%;
-    /* Adjust the width of both sections */
-}
-
-.contact-section h2 {
-    font-size: 3rem;
-    /* Slightly smaller than the Home section header */
-    color: var(--strong-text-color);
-    /* Consistent text color for headers */
-    margin-bottom: 20px;
-    /* Space below the header */
-    text-align: center;
-}
-
-.contact-section p {
-    color: var(--text-color);
-    /* Consistent text color */
-    font-size: 1.25rem;
-    /* Standard font size for body text */
-    line-height: 1.6;
-    /* Line height for improved readability */
-    margin-bottom: 20px;
-    /* Space between paragraphs */
-    text-align: center;
-}
-
-.form-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 10px;
-    width: 100%;
-}
-
-.contact-form input,
-.contact-form textarea {
-    font-size: 1.25rem;
-    padding: 10px;
-    margin-bottom: 10px;
-    color: var(--text-color);
-    background-color: var(--strong-background-color);
-    border: 1px solid var(--form-border-color);
-    border-radius: 2px;
-    width: 100%;
-}
-
-.contact-form textarea {
-    height: 150px;
-}
-
-/* Hover and focus states for inputs */
-.contact-form input:hover,
-.contact-form input:focus,
-.contact-form textarea:hover,
-.contact-form textarea:focus {
-    border-color: var(--text-color);
-    /* Darker border color on hover/focus */
-    outline: none;
-    /* Remove default focus outline */
-}
-
-
-.submit-button {
-    padding: 10px 20px;
-    background-color: #000000;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #555;
+    overflow-wrap: break-word;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-
-    /* Adjusts for tablets and smaller devices */
-    .about-container {
-        flex-direction: column;
-        align-items: flex-start;
-        /* Align items to the top on mobile */
-        height: auto;
-        /* Allow the container to grow vertically */
-        margin-right: 20px;
-        /* Smaller margin on smaller screens */
-        width: 90%;
-    }
-
-    .about-section,
-    .contact-section {
+    .about-section {
         padding: 10px;
-        /* Smaller padding on mobile */
-        flex-basis: 100%;
-        /* Allow each section to take full width */
         text-align: left;
-        /* Keep text left-aligned for readability */
     }
 
-    .about-section h2,
-    .contact-section h2 {
+    .about-section h2 {
         font-size: 2rem;
-        /* Smaller font size for headers */
         margin-bottom: 10px;
-        /* Smaller space below the header */
     }
 
-    .about-section p,
-    .contact-section p {
+    .about-section p {
         font-size: 1rem;
-        /* Smaller font size for body text */
-        max-width: 100%;
-        /* Allow text to fill the container */
         margin-bottom: 10px;
-        /* Smaller space between paragraphs */
-    }
-
-    .back-to-songs {
-        top: 10px;
-        /* Adjust position to not overlap with the navbar */
-        padding: 5px 0;
-        /* Thinner button on mobile */
-    }
-
-    .form-group {
-        grid-template-columns: 1fr;
-        /* Stack inputs on top of each other */
-        gap: 5px;
-        /* Smaller gap between inputs */
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        font-size: 1rem;
-        /* Smaller font size for inputs */
-    }
-
-    .contact-form textarea {
-        height: 120px;
-        /* Smaller textarea height */
-    }
-
-    .submit-button {
-        padding: 8px 16px;
-        /* Smaller padding for the button */
     }
 }
