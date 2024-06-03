@@ -5,7 +5,7 @@ import About from './About';
 import Contact from './Contact';
 import { scrollToSongsList } from './NavBar';
 
-function AboutPage({ contactRef }) {
+function AboutPage({ contactRef, isContactVisible, setIsContactVisible }) {
     const aboutRef = useRef(null);
     const [showButton, setShowButton] = useState(false);
 
@@ -35,7 +35,7 @@ function AboutPage({ contactRef }) {
             )}
             <About />
             <div ref={contactRef}>
-                <Contact />
+                <Contact isVisible={isContactVisible} toggleVisibility={() => setIsContactVisible(!isContactVisible)} />
             </div>
         </div>
     );

@@ -1,8 +1,8 @@
+// components/SongsList.js
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import '../styles/SongsList.css';
 import '../styles/LoadingIndicator.css';
-import CustomDropdown from './CustomDropdown';
 
 const SongsList = () => {
     const [songs, setSongs] = useState([]);
@@ -86,72 +86,63 @@ const SongsList = () => {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="database-container">
-            <table className="songs-table">
-                <thead>
-                    <tr>
-                        <th>
-                            <CustomDropdown
-                                label="Artists"
-                                options={uniqueArtists}
-                                value={currentFilter.type === 'artist' ? currentFilter.value : ''}
-                                onChange={e => setCurrentFilter({ type: 'artist', value: e.target.value })}
-                            />
-                        </th>
-                        <th onClick={() => handleSort('title')}>
-                            Title
-                            {sortField === 'title' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
-                        </th>
-                        <th>
-                            <CustomDropdown
-                                label="Albums"
-                                options={uniqueAlbums}
-                                value={currentFilter.type === 'album' ? currentFilter.value : ''}
-                                onChange={e => setCurrentFilter({ type: 'album', value: e.target.value })}
-                            />
-                        </th>
-                        <th>
-                            <CustomDropdown
-                                label="Producers"
-                                options={uniqueProducers}
-                                value={currentFilter.type === 'producer' ? currentFilter.value : ''}
-                                onChange={e => setCurrentFilter({ type: 'producer', value: e.target.value })}
-                            />
-                        </th>
-                        <th onClick={() => handleSort('release_date')}>
-                            Release Date
-                            {sortField === 'release_date' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
-                        </th>
-                        <th>
-                            <CustomDropdown
-                                label="Features"
-                                options={uniqueFeatures}
-                                value={currentFilter.type === 'feature' ? currentFilter.value : ''}
-                                onChange={e => setCurrentFilter({ type: 'feature', value: e.target.value })}
-                            />
-                        </th>
-                        {/* <th>Sample</th> */}
-                        <th>Art</th>
+        <table className="songs-table">
+            <thead>
+                <tr>
+                    <th>
+                        Artist
+                        <select onChange={e => setCurrentFilter({ type: 'artist', value: e.target.value })} value={currentFilter.type === 'artist' ? currentFilter.value : ''}>
+                            <option value="">All Artists</option>
+                            {uniqueArtists.map(artist => <option key={artist} value={artist}>{artist}</option>)}
+                        </select>
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Album
+                        <select onChange={e => setCurrentFilter({ type: 'album', value: e.target.value })} value={currentFilter.type === 'album' ? currentFilter.value : ''}>
+                            <option value="">All Albums</option>
+                            {uniqueAlbums.map(album => <option key={album} value={album}>{album}</option>)}
+                        </select>
+                    </th>
+                    <th>
+                        Producer
+                        <select onChange={e => setCurrentFilter({ type: 'producer', value: e.target.value })} value={currentFilter.type === 'producer' ? currentFilter.value : ''}>
+                            <option value="">All Producers</option>
+                            {uniqueProducers.map(producer => <option key={producer} value={producer}>{producer}</option>)}
+                        </select>
+                    </th>
+                    <th onClick={() => handleSort('release_date')}>
+                        Release Date
+                        {sortField === 'release_date' && (sortOrder === 'asc' ? ' ↑' : ' ↓')}
+                    </th>
+                    <th>
+                        Feature
+                        <select onChange={e => setCurrentFilter({ type: 'feature', value: e.target.value })} value={currentFilter.type === 'feature' ? currentFilter.value : ''}>
+                            <option value="">All Features</option>
+                            {uniqueFeatures.map(feature => <option key={feature} value={feature}>{feature}</option>)}
+                        </select>
+                    </th>
+                    <th>Art</th>
+                </tr>
+            </thead>
+            <tbody>
+                {sortedAndFilteredSongs.map(song => (
+                    <tr key={song.id}>
+                        <td>{song.artist}</td>
+                        <td>{song.title}</td>
+                        <td>{song.album || 'N/A'}</td>
+                        <td>{song.producer || 'N/A'}</td>
+                        <td>{song.release_date ? new Date(song.release_date).toLocaleDateString() : 'Unknown'}</td>
+                        <td>{song.feature || 'N/A'}</td>
+                        <td>
+                            {song.song_art_url ? <img src={song.song_art_url} alt="song art" style={{ width: '50px', height: '50px' }} /> : 'N/A'}
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {sortedAndFilteredSongs.map(song => (
-                        <tr key={song.id}>
-                            <td data-label="Artist">{song.artist}</td>
-                            <td data-label="Title">{song.title}</td>
-                            <td data-label="Album">{song.album || 'N/A'}</td>
-                            <td data-label="Producer">{song.producer || 'N/A'}</td>
-                            <td data-label="Release Date">{song.release_date ? new Date(song.release_date).toLocaleDateString() : 'Unknown'}</td>
-                            <td data-label="Feature">{song.feature || 'N/A'}</td>
-                            {/* <td>{song.sample || 'N/A'}</td> */}
-                            <td data-label="Art">
-                                {song.song_art_url ? <img src={song.song_art_url} alt="song art" style={{ width: '50px', height: '50px' }} /> : 'N/A'}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+                ))}
+            </tbody>
+        </table>
     );
 };
 

@@ -9,7 +9,13 @@
     font-size: 3rem;
     color: var(--strong-text-color);
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.contact-section h2:hover {
+    color: var(--text-color);
+    text-decoration: underline;
 }
 
 .contact-section p {
@@ -17,7 +23,7 @@
     font-size: 1.25rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .form-group {
@@ -36,11 +42,17 @@
     background-color: var(--strong-background-color);
     border: 1px solid var(--form-border-color);
     border-radius: 2px;
-    width: 100%;
+
 }
 
 .contact-form textarea {
     height: 150px;
+    /* Fixed height */
+    width: 100%;
+    /* Fixed width */
+    max-width: 100%;
+    /* Ensure it doesn't exceed container width */
+    box-sizing: border-box;
 }
 
 .contact-form input:hover,

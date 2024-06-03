@@ -1,5 +1,5 @@
 // App.js
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import SongsList from './components/SongsList';
 import './App.css';
 import HomePage from './components/HomePage';
@@ -12,10 +12,15 @@ console.log(SongsList); // Should log the function or class if correctly importe
 const App = () => {
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
+  const [isContactVisible, setIsContactVisible] = useState(false);
 
   return (
     <div className="App">
-      <NavBar aboutRef={aboutRef} contactRef={contactRef} />
+      <NavBar
+        aboutRef={aboutRef}
+        contactRef={contactRef}
+        setIsContactVisible={setIsContactVisible}
+      />
       <main>
         <div id="homePage">
           <HomePage />
@@ -24,7 +29,11 @@ const App = () => {
           <SongsList />
         </div>
         <div id="aboutPage" ref={aboutRef}>
-          <AboutPage contactRef={contactRef} />
+          <AboutPage
+            contactRef={contactRef}
+            isContactVisible={isContactVisible}
+            setIsContactVisible={setIsContactVisible}
+          />
         </div>
         <Footer />
       </main>
