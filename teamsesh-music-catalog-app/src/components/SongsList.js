@@ -131,7 +131,7 @@ const SongsList = () => {
                 {sortedAndFilteredSongs.map(song => (
                     <tr key={song.id}>
                         <td>{song.artist}</td>
-                        <td>{song.title}</td>
+                        <td><a href={song.url} target="_blank" rel="noopener noreferrer">{song.title}</a></td>
                         <td>{song.album || 'N/A'}</td>
                         <td>{song.producer || 'N/A'}</td>
                         <td>{song.release_date ? new Date(song.release_date).toLocaleDateString() : 'Unknown'}</td>

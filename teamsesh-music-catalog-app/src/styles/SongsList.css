@@ -29,7 +29,6 @@
     /* Dark grey background for the track */
 }
 
-
 /* Table styles */
 .songs-table {
     width: 100%;
@@ -51,6 +50,17 @@
     padding: 12px 12px;
     /* Increase padding for more space */
     border-bottom: 1px solid var(--db-border-color);
+}
+
+/* Add styles for links */
+.songs-table a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.songs-table a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
 }
 
 /* Sticky header styles */
@@ -97,7 +107,6 @@
     transition: background-color 0.5s;
     /* Smooth transition */
 }
-
 
 /* Adjusted select box styles for filters */
 .songs-table select {

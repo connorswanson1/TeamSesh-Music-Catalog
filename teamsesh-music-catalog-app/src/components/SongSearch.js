@@ -1,4 +1,4 @@
-// Lots of redundancy in this file, need to create parent component to pass songs
+// components/SongSearch.js
 import React, { useState, useMemo, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/LoadingIndicator.css';
@@ -42,10 +42,6 @@ const SongSearch = () => {
         return [];
     }, [searchTerm, songs]);
 
-    const handleSelectSong = (song) => {
-        setSelectedSong(song);
-    };
-
     const LoadingIndicator = () => {
         return (
             <div className="loading-container">
@@ -68,14 +64,16 @@ const SongSearch = () => {
             />
             <ul className={`search-results ${filteredSongs.length > 0 ? 'expanded' : ''}`}>
                 {filteredSongs.map(song => (
-                    <li key={song.id} onClick={() => handleSelectSong(song)}>
-                        {song.title}
+                    <li key={song.id}>
+                        <a href={song.url} target="_blank" rel="noopener noreferrer" onClick={() => setSelectedSong(song)}>
+                            {song.title}
+                        </a>
                     </li>
                 ))}
             </ul>
             {selectedSong && (
                 <div className="song-details">
-                    <h3>{selectedSong.title}</h3>
+                    <h3><a href={selectedSong.url} target="_blank" rel="noopener noreferrer">{selectedSong.title}</a></h3>
                     <p>Artist: {selectedSong.artist}</p>
                     <p>Producer: {selectedSong.producer || 'N/A'}</p>
                     <p>Album: {selectedSong.album || 'N/A'}</p>
@@ -86,8 +84,6 @@ const SongSearch = () => {
             )}
         </div>
     );
-
-
 };
 
 export default SongSearch;
