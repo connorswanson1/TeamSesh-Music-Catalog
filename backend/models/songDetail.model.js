@@ -10,6 +10,7 @@ const songDetailSchema = new mongoose.Schema({
     samples: String,
     release_date: Date,
     song_art_url: String,
+    url: String,
 });
 
 const SongDetail = mongoose.model('SongDetail', songDetailSchema);

@@ -51,7 +51,7 @@ async function getArtistSongs(artistId) {
 }
 
 /* Get detailed information using Song ID */
-const fetchSongDetails = async (songId) => {
+const fetchSongDetails = async (songId, retries = 3) => {
     try {
         const response = await axios.get(`https://api.genius.com/songs/${songId}`, {
             headers: { 'Authorization': `Bearer ${process.env.GENIUS_ACCESS_TOKEN}` }
@@ -78,16 +78,27 @@ const fetchSongDetails = async (songId) => {
             release_date: songData.release_date ? new Date(songData.release_date) : null,
             song_art_url: songData.song_art_image_url,
             producer: producers, // Added producer details
+            url: songData.url // Added Genius URL
         };
     } catch (error) {
-        console.error(`Failed to fetch details for song ID ${songId}:`, error);
-        throw error;
+        if (error.response && error.response.status === 404) {
+            console.error(`Song ID ${songId} not found. Skipping...`);
+            return null; // Return null if song is not found
+        } else if (retries > 0 && error.response && error.response.status === 429) {
+            // Wait for a longer period if rate limited
+            await new Promise(resolve => setTimeout(resolve, 60000)); // Wait 60 seconds
+            return fetchSongDetails(songId, retries - 1);
+        } else {
+            console.error(`Failed to fetch details for song ID ${songId}:`, error);
+            throw error;
+        }
     }
 };
 
+
 async function getAllSongDetailsForArtist(artistId) {
     const songIds = await getArtistSongs(artistId);
-    const songDetailsPromises = songIds.map(id => getSongDetails(id));
+    const songDetailsPromises = songIds.map(id => fetchSongDetails(id));
     return Promise.all(songDetailsPromises); // Fetch all song details concurrently
 }
 
