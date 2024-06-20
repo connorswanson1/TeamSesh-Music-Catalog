@@ -44,7 +44,7 @@
 
 /* Add a CSS class to expand the results */
 .search-results.expanded {
-    max-height: 250px;
+    max-height: 150px;
     /* Set to maximum height you expect the content might need */
 }
 

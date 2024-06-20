@@ -10,7 +10,7 @@
 }
 
 .home-text {
-    width: 60%;
+    width: 50%;
     /* Adjust the width as needed */
     padding: 20px;
     /* Add some padding */
@@ -30,7 +30,7 @@
 }
 
 .home-text p {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     /* Slightly larger font size for readability */
     color: var(--text-color);
     /* Medium-dark color for the text */
@@ -49,6 +49,20 @@
     /* Align items on both ends */
     padding: 40px;
     /* Add some padding */
+}
+
+.home-list {
+    list-style-type: disc;
+    display: inline-block;
+    margin-bottom: 40px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.home-list li {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
 }
 
 .home-photo {

@@ -1,4 +1,3 @@
-// components/SongSearch.js
 import React, { useState, useMemo, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/LoadingIndicator.css';
@@ -42,6 +41,10 @@ const SongSearch = () => {
         return [];
     }, [searchTerm, songs]);
 
+    const handleSelectSong = (song) => {
+        setSelectedSong(song);
+    };
+
     const LoadingIndicator = () => {
         return (
             <div className="loading-container">
@@ -64,22 +67,21 @@ const SongSearch = () => {
             />
             <ul className={`search-results ${filteredSongs.length > 0 ? 'expanded' : ''}`}>
                 {filteredSongs.map(song => (
-                    <li key={song.id}>
-                        <a href={song.url} target="_blank" rel="noopener noreferrer" onClick={() => setSelectedSong(song)}>
-                            {song.title}
-                        </a>
+                    <li key={song.id} onClick={() => handleSelectSong(song)}>
+                        {song.title}
                     </li>
                 ))}
             </ul>
             {selectedSong && (
                 <div className="song-details">
-                    <h3><a href={selectedSong.url} target="_blank" rel="noopener noreferrer">{selectedSong.title}</a></h3>
+                    <h3>{selectedSong.title}</h3>
                     <p>Artist: {selectedSong.artist}</p>
                     <p>Producer: {selectedSong.producer || 'N/A'}</p>
                     <p>Album: {selectedSong.album || 'N/A'}</p>
                     <p>Feature: {selectedSong.feature || 'N/A'}</p>
                     <p>Release Date: {selectedSong.release_date ? new Date(selectedSong.release_date).toLocaleDateString() : 'Unknown'}</p>
                     <div>{selectedSong.song_art_url ? <img src={selectedSong.song_art_url} alt="song art" /> : 'N/A'}</div>
+                    <p><a href={`https://genius.com/songs/${selectedSong.geniusSongId}`} target="_blank" rel="noopener noreferrer">View lyrics on Genius</a></p>
                 </div>
             )}
         </div>
