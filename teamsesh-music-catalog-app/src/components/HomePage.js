@@ -15,6 +15,7 @@ function HomePage() {
             <div className="home-text">
                 <h1><span className="gothic-font">TeamSesh Database</span></h1>
                 <p>This page is a collection of every song <span className="gothic-font">BONES</span> has made, been featured on, or is associated with.</p>
+                <p>Thank you for visiting, enjoy. <span className="gothic-font">sesh</span>.</p>
                 <button className="toggle-list-btn" onClick={toggleListVisibility}>
                     How can I use this site?
                 </button>
@@ -24,7 +25,6 @@ function HomePage() {
                     <li>Clicking the title of a song will take you to the Genius lyrics page.</li>
                     <li>Search for a specific song, or access the full database below.</li>
                 </ul>
-                {/* <p>Thank you for visiting, enjoy. <span className="gothic-font">sesh</span>.</p> */}
                 <button className="explore-btn" onClick={scrollToSongsList}>Explore Full Database ↓</button>
             </div>
             <div className="home-search-container">

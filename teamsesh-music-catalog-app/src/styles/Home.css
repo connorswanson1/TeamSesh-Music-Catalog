@@ -82,7 +82,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.6rem;
-    font-weight: 900;
+    font-weight: 600;
 
     transition: background-color 0.3s;
 }
@@ -109,9 +109,7 @@
     border: 2px solid transparent;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.5rem;
-    /* Adjust as needed */
-    margin-top: 20px;
+    font-size: 1.25rem;
 }
 
 .explore-btn:hover {
@@ -143,15 +141,19 @@
     }
 
     .home-text p {
-        font-size: 1rem;
+        font-size: 1.25rem;
         /* Adjust font size for smaller screens */
     }
 
     .toggle-list-btn {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
     }
 
     .home-list li {
+        font-size: 1.25rem;
+    }
+
+    .explore-btn {
         font-size: 1rem;
     }
 
