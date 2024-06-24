@@ -1,4 +1,5 @@
 .navbar {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,7 +7,7 @@
     top: 0;
     background-color: var(--strong-background-color);
     box-shadow: var(--shadow-color);
-    padding: 0 20px;
+    /* padding: 0 20px; */
     z-index: 1000;
     /* Ensure navbar stays on top of other content */
     /* min-height: 50px; */
@@ -60,6 +61,7 @@
 }
 
 .navbar-title {
+    padding-left: 10px;
     font-size: 24px;
     font-weight: bold;
     color: var(--strong-text-color)

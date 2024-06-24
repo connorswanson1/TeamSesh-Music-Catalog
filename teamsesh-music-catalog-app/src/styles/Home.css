@@ -7,6 +7,7 @@
     gap: 20px;
     /* Adds space between the text content and logo */
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .home-text {
