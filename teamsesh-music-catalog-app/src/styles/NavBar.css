@@ -81,6 +81,10 @@
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
+    .navbar {
+        width: 90%;
+    }
+
     .navbar-title {
         display: none;
         /* Hide the title on smaller screens */
@@ -111,7 +115,8 @@
     }
 
     .navbar-links {
-        gap: 15px;
+        justify-content: left;
+        gap: 10px;
         /* Smaller gap between links */
     }
 }

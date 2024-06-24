@@ -142,12 +142,12 @@
 
     .songs-table {
         width: 100%;
-        font-weight: 250;
-        font-size: .7rem;
+        font-weight: 500;
+        font-size: .5rem;
     }
 
     .database-container {
-        max-height: 75vh;
+        max-height: 85vh;
         overflow-x: auto;
         margin: 0px 15px;
     }
