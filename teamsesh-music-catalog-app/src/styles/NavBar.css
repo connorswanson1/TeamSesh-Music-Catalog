@@ -82,7 +82,8 @@
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
     .navbar {
-        width: 90%;
+        /* width: 90%; */
+        align-items: flex;
     }
 
     .navbar-title {
