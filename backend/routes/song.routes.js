@@ -44,4 +44,15 @@ router.get('/details', async (req, res) => {
     }
 });
 
+// Route to get the count of songs
+router.get('/count', async (req, res) => {
+    try {
+        const songCount = await SongDetail.countDocuments();
+        res.json({ count: songCount });
+    } catch (error) {
+        console.error('Failed to get song count:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 module.exports = router;
