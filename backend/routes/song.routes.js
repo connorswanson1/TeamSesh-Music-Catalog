@@ -33,10 +33,10 @@ router.get('/fetch-details', async (req, res) => {
     }
 });
 
-// New route to get song details
+// Route to get song details, excluding those with "unknown" release dates
 router.get('/details', async (req, res) => {
     try {
-        const songs = await SongDetail.find({}); // Adjust query as needed
+        const songs = await SongDetail.find({ release_date: { $ne: null } }); // Exclude songs with null release dates
         res.json(songs);
     } catch (error) {
         console.error('Failed to get song details:', error);
